@@ -5,6 +5,7 @@ const uploadCloud = require("../config/cloudinary.js");
 const router = express.Router();
 
 
+
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -28,20 +29,23 @@ router.get("/", ensureAuthenticated, (req, res) => {
   /* res.render("index", { user: req.user }); */
 });
 
+/* Get User profile ======================================================== */
 router.get("/profile", ensureAuthenticated, (req, res) => {
   User.find().then(user => {
     res.render("user-profile", { user: req.user });
   });
 });
 
+/* Create User profile (enter birthchart) ======================================================== */
 
+
+
+/* Edit User profile ======================================================== */
 router.get("/edit-profile", ensureAuthenticated, (req, res) => {
   User.findOne({ _id: req.query.user_id }).then(user => {
     res.render("user-create-chart", { user });
   });
 });
-
-
 
 router.post("/edit-profile", uploadCloud.single("photo"), (req, res, next) => {
   const imgPath = req.file.url;
@@ -62,6 +66,7 @@ router.post("/edit-profile", uploadCloud.single("photo"), (req, res, next) => {
     });
 });
 
+
 /* Add Friend ========================================================== */
 // let img = cloudinary.image("http://res.cloudinary.com/ironhack/image/upload/v1541754423/carrot/Star-Wars-9-will-correct-Rey-Luke-and-Kylo-Ren-storylines-1041757.jpg.jpg", { effect: "grayscale" })
 // console.log('DEBUG img', img);
@@ -74,16 +79,17 @@ router.get('/add-friend', ensureAuthenticated, (req, res, next) => {
 // the parameter is 'photo' because we have
 // --->  <input type="file" name="photo">
 router.post(
-  "/add-friend", //uploadCloud.single('photo'),
-  (req, res, next) => {
+  "/add-friend", uploadCloud.single('photo'), (req, res, next) => {
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
     const newFriend = new Friend({
       name: req.body.name,
       birthday: req.body.birthday,
       birthtime: req.body.birthtime,
       birthplace: req.body.birthplace,
-      location: req.body.location
-      //imgPath: req.file.url,
-      //imgName: req.file.originalname,
+      location: req.body.location,
+      imgPath,
+      imgName
     });
     newFriend
       .save()
@@ -95,6 +101,21 @@ router.post(
         console.log(error)
       })
   });
+
+/* Friend detail page ========================================================== */
+router.get('/:id', (req, res, next) => {
+  let id = req.params.id // the id from the url
+  Friend.findById(id)
+    .then(friendFromDb => {
+      res.render('detail-friend', {
+        friend: friendFromDb
+      })
+    })
+    .catch(error => {
+      next(error)
+    })
+})
+
 
 /* Delete Friend ========================================================== */
 router.get('/:id/delete', (req, res, next) => {

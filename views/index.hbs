@@ -2,22 +2,22 @@
 
 <a href="/{{this._id}}">
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+    <img class="card-img-top" src="{{this.imgPath}}" alt="Card image cap">
+
+    <div class="card-body">
+      <h5 class="card-title">{{this.name}}</h5>
+      <p class="card-text">
+        <span>{{this.birthday}}</span><br>
+        <span>{{this.birthtime}}</span><br>
+        <span>{{this.birthplace}}</span><br>
+        <span>{{this.location}}</span><br>
+      </p>
 </a>
-<div class="card-body">
-  <h5 class="card-title">{{this.name}}</h5>
-  <p class="card-text">
-    <span>{{this.birthday}}</span><br>
-    <span>{{this.birthtime}}</span><br>
-    <span>{{this.birthplace}}</span><br>
-    <span>{{this.location}}</span><br>
-
-
-  </p>
-  <a href="#" class="btn btn-primary">Go somewhere</a><br>
-  <a href="/{{this._id}}/delete">Delete</a>
+<a href="#" class="btn btn-primary">Go somewhere</a><br>
+<a href="/{{this._id}}/delete">Delete</a>
 </div>
 
-
+{{else}}
+<p>You have no friends yet!<br> Sadness!<br> <a href="/add-friend">Add a friend</a> or get a random celeb</p>
 
 {{/each}}
