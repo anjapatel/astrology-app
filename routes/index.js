@@ -30,39 +30,40 @@ router.get("/", ensureAuthenticated, (req, res) => {
 });
 
 router.get("/profile", ensureAuthenticated, (req, res) => {
-  User.find().then(user => {
+  User.findOne().then(user => {
     res.render("user-profile", { user: req.user });
   });
 });
 
-router.get("/add-friend", ensureAuthenticated, (req, res) => {
-  res.render("add-friend", { user: req.user });
-});
-
-router.get("/edit-profile", ensureAuthenticated, (req, res) => {
-  User.findOne({ _id: req.query.user_id }).then(user => {
+router.get("/edit-profile/:id", ensureAuthenticated, (req, res) => {
+  User.findOne({ _id: req.user_id }).then(users => {
+    const user = req.user;
     res.render("user-create-chart", { user });
   });
 });
 
-router.post("/edit-profile", uploadCloud.single("photo"), (req, res, next) => {
-  const imgPath = req.file.url;
-  const imgName = req.file.originalname;
-  const { location, birthday, birthtime } = req.body;
-  console.log(req.body);
-  User.updateOne(
-    { _id: req.user._id },
-    { $set: { location, birthday, birthtime, imgPath, imgName } },
-    { new: true }
-  )
-    .then(user => {
-      res.redirect("/profile");
-      console.log("profile updated");
-    })
-    .catch(err => {
-      console.log("profile creation error");
-    });
-});
+router.post(
+  "/edit-profile/:id",
+  uploadCloud.single("photo"),
+  (req, res, next) => {
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
+    const { location, birthday, birthtime, birthplace } = req.body;
+    console.log(req.body);
+    User.updateOne(
+      { _id: req.user._id },
+      { $set: { location, birthday, birthtime, birthplace, imgPath, imgName } },
+      { new: true }
+    )
+      .then(user => {
+        res.redirect("/profile");
+        console.log("profile updated");
+      })
+      .catch(err => {
+        console.log("profile creation error");
+      });
+  }
+);
 
 /* Add Friend ========================================================== */
 
