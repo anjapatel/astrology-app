@@ -7,7 +7,7 @@ const friendSchema = new Schema({
   birthtime: String,
   birthplace: String,
   location: String,
-  photo
+  //photo
 }, {
     timestamps: {
       createdAt: 'created_at',
