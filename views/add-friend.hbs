@@ -3,10 +3,6 @@
 
 <form action="/add-friend" method="POST" enctype="multipart/form-data">
 
-  <label>Upload a photo</label>
-  <input type="file" name="photo">
-  <br>
-
   <label for="name">Friend's name</label>
   <input id="name" type="text" name="name" placeholder="friend's name">
   <br>
@@ -27,8 +23,11 @@
   <input type="text" name="location" placeholder="city, country">
   <br>
 
+  <label>Upload a photo</label>
+  <input type="file" name="photo">
+  <br>
+
   <button type="submit">Add Friend</button>
 
-  {{!-- <input type="submit" value="ADD FRIEND"> --}}
   <br>
 </form>
