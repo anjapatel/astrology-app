@@ -3,7 +3,7 @@ hi! tell us about yourself and add your birth info to
 <br>
 <br>
 
-<form action="/edit-profile" method="POST">
+<form action="/edit-profile" method="POST" enctype="multipart/form-data">
 
   <label for="location">Current city</label>
   <input type="text" name="location">
@@ -25,6 +25,8 @@ hi! tell us about yourself and add your birth info to
 
   <br>
 
+  <label for="photo">Profile Pic</label>
+  <input type="file" name="photo">
 
   <button type="submit">Submit</button>
 
