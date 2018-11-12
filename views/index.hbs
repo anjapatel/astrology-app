@@ -1,21 +1,23 @@
-<ul>
-  {{#each listOfFriends}}
-  <li>
-    <a href="/{{this._id}}">
-      {{this.name}}
+{{#each listOfFriends}}
 
-    </a>
+<a href="/{{this._id}}">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+</a>
+<div class="card-body">
+  <h5 class="card-title">{{this.name}}</h5>
+  <p class="card-text">
+    <span>{{this.birthday}}</span><br>
+    <span>{{this.birthtime}}</span><br>
+    <span>{{this.birthplace}}</span><br>
+    <span>{{this.location}}</span><br>
 
-  </li>
-  {{/each}}
-</ul>
+
+  </p>
+  <a href="#" class="btn btn-primary">Go somewhere</a><br>
+  <a href="/{{this._id}}/delete">Delete</a>
+</div>
 
 
-{{!-- <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{this.name}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-      content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div> --}}
+
+{{/each}}

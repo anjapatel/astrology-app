@@ -1,9 +1,9 @@
 const express = require("express");
-//const cloudinary = require('cloudinary');
+const User = require("../models/User");
 const Friend = require('../models/Friend.js')
+//const cloudinary = require('cloudinary');
 //const uploadCloud = require('../config/cloudinary.js');
 const router = express.Router();
-const User = require("../models/User");
 
 
 function ensureAuthenticated(req, res, next) {
@@ -35,22 +35,14 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
   });
 });
 
-router.get("/add-friend", ensureAuthenticated, (req, res) => {
-  res.render("add-friend", { user: req.user });
-});
 
 router.get("/edit-profile", ensureAuthenticated, (req, res) => {
-  //const username = req.body.username;
-
   User.findOne({ _id: req.query.user_id }).then(user => {
     res.render("user-create-chart", { user });
   });
 });
 
 router.post("/edit-profile", (req, res, next) => {
-  // const location = req.body.location;
-  // const birthday = req.body.birthday;
-  // const birthtime = req.body.birthtime;
   const { location, birthday, birthtime } = req.body;
   console.log(req.body);
   User.updateOne(
@@ -68,15 +60,11 @@ router.post("/edit-profile", (req, res, next) => {
 });
 
 /* Add Friend ========================================================== */
-router.get('/', (req, res, next) => {
-
-});
 // let img = cloudinary.image("http://res.cloudinary.com/ironhack/image/upload/v1541754423/carrot/Star-Wars-9-will-correct-Rey-Luke-and-Kylo-Ren-storylines-1041757.jpg.jpg", { effect: "grayscale" })
 // console.log('DEBUG img', img);
 
-
-router.get('/add-friend', (req, res, next) => {
-  res.render('add-friend')
+router.get('/add-friend', ensureAuthenticated, (req, res, next) => {
+  res.render('add-friend', { user: req.user })
 });
 
 // uploadCloud.single('photo') is a middleware
@@ -102,8 +90,15 @@ router.post('/add-friend', //uploadCloud.single('photo'),
       .catch(error => {
         console.log(error)
       })
-
   });
+
+/* Delete Friend ========================================================== */
+router.get('/:id/delete', (req, res, next) => {
+  Friend.findByIdAndRemove(req.params.id)
+    .then(friend => {
+      res.redirect('/')
+    })
+})
 
 
 module.exports = router;
