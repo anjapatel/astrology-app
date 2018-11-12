@@ -8,7 +8,9 @@ const userSchema = new Schema(
     birthday: String,
     birthtime: String,
     birthplace: String,
-    location: String
+    location: String,
+    imgName: String,
+    imgPath: String
   },
   {
     timestamps: {

@@ -1,8 +1,7 @@
 const express = require("express");
 const User = require("../models/User");
 const Friend = require('../models/Friend.js')
-//const cloudinary = require('cloudinary');
-//const uploadCloud = require('../config/cloudinary.js');
+const uploadCloud = require("../config/cloudinary.js");
 const router = express.Router();
 
 
@@ -16,16 +15,16 @@ function ensureAuthenticated(req, res, next) {
 
 /* GET home page */
 router.get("/", ensureAuthenticated, (req, res) => {
-  console.log("Rendering list of friends")
+  console.log("Rendering list of friends");
   Friend.find()
     .then(friendsFromDb => {
-      res.render('index', {
+      res.render("index", {
         listOfFriends: friendsFromDb
       });
     })
-    .catch((error) => {
-      console.log(error)
-    })
+    .catch(error => {
+      console.log(error);
+    });
   /* res.render("index", { user: req.user }); */
 });
 
@@ -42,12 +41,16 @@ router.get("/edit-profile", ensureAuthenticated, (req, res) => {
   });
 });
 
-router.post("/edit-profile", (req, res, next) => {
+
+
+router.post("/edit-profile", uploadCloud.single("photo"), (req, res, next) => {
+  const imgPath = req.file.url;
+  const imgName = req.file.originalname;
   const { location, birthday, birthtime } = req.body;
   console.log(req.body);
   User.updateOne(
     { _id: req.user._id },
-    { $set: { location, birthday, birthtime } },
+    { $set: { location, birthday, birthtime, imgPath, imgName } },
     { new: true }
   )
     .then(user => {
@@ -68,11 +71,11 @@ router.get('/add-friend', ensureAuthenticated, (req, res, next) => {
 });
 
 // uploadCloud.single('photo') is a middleware
-// the parameter is 'photo' because we have 
+// the parameter is 'photo' because we have
 // --->  <input type="file" name="photo">
-router.post('/add-friend', //uploadCloud.single('photo'), 
+router.post(
+  "/add-friend", //uploadCloud.single('photo'),
   (req, res, next) => {
-
     const newFriend = new Friend({
       name: req.body.name,
       birthday: req.body.birthday,
@@ -81,11 +84,12 @@ router.post('/add-friend', //uploadCloud.single('photo'),
       location: req.body.location
       //imgPath: req.file.url,
       //imgName: req.file.originalname,
-    })
-    newFriend.save()
+    });
+    newFriend
+      .save()
       .then(friend => {
-        console.log("A new friend was added:  " + friend._id)
-        res.redirect('/')
+        console.log("A new friend was added:  " + friend._id);
+        res.redirect("/");
       })
       .catch(error => {
         console.log(error)
