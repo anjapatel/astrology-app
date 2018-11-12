@@ -1,1 +1,28 @@
-this is where you can add a friend!
+<h1>this is where you can add a friend!</h1>
+
+{{!-- Don't forget --}}
+{{!-- enctype="multipart/form-data" --}}
+<form action="/add-friend" method="post" enctype="multipart/form-data">
+  <label>Friend's name</label>
+  <input type="text" name="name" placeholder="friend's name">
+  <br>
+
+  <label>Date of birth</label>
+  <input type="text" name="birthday" placeholder="dd/mm/yyyy">
+  <br>
+
+  <label>Time of birth</label>
+  <input type="text" name="birthtime" placeholder="18:05">
+  <br>
+
+  <label>Place of birth</label>
+  <input type="text" name="birthplace" placeholder="city, country">
+  <br>
+
+  <label>Upload a photo</label>
+  <input type="file" name="photo">
+  <br>
+
+  <input type="submit" value="ADD FRIEND">
+  <br>
+</form>
