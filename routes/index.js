@@ -1,7 +1,8 @@
 const express = require("express");
 const User = require("../models/User");
-const Friend = require("../models/Friend.js");
-const uploadCloud = require("../config/cloudinary.js");
+const Friend = require("../models/Friend");
+const uploadCloud = require("../config/cloudinary");
+const createZodiac = require("../utils").createZodiac;
 const router = express.Router();
 
 function ensureAuthenticated(req, res, next) {
@@ -28,11 +29,6 @@ router.get("/", ensureAuthenticated, (req, res) => {
 });
 
 /* Get User profile ======================================================== */
-router.get("/profile", ensureAuthenticated, (req, res) => {
-  User.findOne().then(user => {
-    res.render("user-profile", { user: req.user });
-  });
-});
 
 router.get("/edit-profile/:id", ensureAuthenticated, (req, res) => {
   User.findOne({ _id: req.user_id }).then(users => {
@@ -47,22 +43,47 @@ router.post(
   (req, res, next) => {
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
-    const { location, birthday, birthtime, birthplace } = req.body;
-    console.log(req.body);
+    const { location, birthday, birthmonth, birthtime, birthplace } = req.body;
+    // const zodiac = createZodiac(req.user);
     User.updateOne(
       { _id: req.user._id },
-      { $set: { location, birthday, birthtime, birthplace, imgPath, imgName } },
+      {
+        $set: {
+          location,
+          birthday,
+          birthmonth,
+          birthtime,
+          birthplace,
+          imgPath,
+          imgName,
+          zodiac: createZodiac({ birthmonth, birthday })
+        }
+      },
       { new: true }
     )
       .then(user => {
         res.redirect("/profile");
         console.log("profile updated");
       })
+
       .catch(err => {
-        console.log("profile creation error");
+        console.log("profile creation error", err);
       });
   }
 );
+//   }
+// );
+
+router.get("/profile", ensureAuthenticated, (req, res) => {
+  User.findOne().then(user => {
+    // console.log("this is my zodiac sign " + createZodiac(req.user));
+    res.render(
+      "user-profile",
+      { user: req.user }
+      // { zodiac: createZodiac(req.user) }
+    );
+  });
+});
 
 
 /* Compatibility page ========================================================== */
@@ -86,7 +107,7 @@ router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
 // uploadCloud.single('photo') is a middleware
 // the parameter is 'photo' because we have
 // --->  <input type="file" name="photo">
-router.post("/add-friend", uploadCloud.single('photo'), (req, res, next) => {
+router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
   const newFriend = new Friend({
@@ -105,10 +126,9 @@ router.post("/add-friend", uploadCloud.single('photo'), (req, res, next) => {
       res.redirect("/");
     })
     .catch(error => {
-      console.log(error)
-    })
+      console.log(error);
+    });
 });
-
 
 /* Friend detail page ========================================================== */
 router.get("/:id", (req, res, next) => {
