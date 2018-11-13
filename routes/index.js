@@ -64,6 +64,19 @@ router.post(
   }
 );
 
+
+/* Compatibility page ========================================================== */
+router.get("/compatibility/:id", (req, res, next) => {
+  Friend.findById(req.params.id)
+    .then(friend => {
+      res.render("compatibility", {
+        user: req.user,
+        friend
+      })
+    })
+});
+
+
 /* Add Friend ========================================================== */
 
 router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
@@ -88,7 +101,7 @@ router.post("/add-friend", uploadCloud.single('photo'), (req, res, next) => {
   newFriend
     .save()
     .then(friend => {
-      console.log("A new friend was added:  " + friend._id);
+      //console.log("A new friend was added:  " + friend._id);
       res.redirect("/");
     })
     .catch(error => {
@@ -119,28 +132,26 @@ router.get('/edit-friend/:id', (req, res, next) => {
     })
 })
 
-router.post('/edit-friend/:id', uploadCloud.single('photo'), (req, res, next) => {
-  // const imgPath = req.file.url;
-  // const imgName = req.file.originalname;
-  // console.log("HEEEEELLLLLOOOOOOO")
-  // console.log(req.params.id)
-  Friend.findByIdAndUpdate(req.params.id, {
-    name: req.body.name,
-    birthday: req.body.birthday,
-    birthtime: req.body.birthtime,
-    birthplace: req.body.birthplace,
-    location: req.body.location,
-    // imgPath,
-    // imgName
-  })
-    .then(friend => {
-      console.log("req.body.birthday")
-      res.redirect('/' + friend._id)
+router.post('/edit-friend/:id', uploadCloud.single('photo'),
+  (req, res, next) => {
+    const imgPath = req.file.url;
+    const imgName = req.file.originalname;
+    console.log("HEEEEELLLLLOOOOOOO")
+    // console.log(req.params.id)
+    Friend.findByIdAndUpdate(req.params.id, {
+      name: req.body.name,
+      birthday: req.body.birthday,
+      birthtime: req.body.birthtime,
+      birthplace: req.body.birthplace,
+      location: req.body.location,
+      imgPath,
+      imgName
     })
-})
-
-
-
+      .then(friend => {
+        console.log("req.body.birthday")
+        res.redirect('/' + friend._id)
+      })
+  })
 
 /* Delete Friend ========================================================== */
 router.get("/:id/delete", (req, res, next) => {
@@ -148,5 +159,7 @@ router.get("/:id/delete", (req, res, next) => {
     res.redirect("/");
   });
 });
+
+
 
 module.exports = router;

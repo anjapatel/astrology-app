@@ -9,6 +9,7 @@ const friendSchema = new Schema({
   location: String,
   imgName: String,
   imgPath: String,
+  _creator: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
     timestamps: {
       createdAt: 'created_at',

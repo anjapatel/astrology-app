@@ -1,7 +1,7 @@
 <h1>Edit {{friend.name}}'s card</h1>
 
 
-<form action="/edit-friend/{{friend._id}}" method="POST">
+<form action="/edit-friend/{{friend._id}}" method="POST" enctype="multipart/form-data">
 
   <label for=" name">Friend's name</label>
   <input id="name" type="text" name="name" value="{{friend.name}}">
