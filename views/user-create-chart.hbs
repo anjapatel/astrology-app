@@ -3,25 +3,25 @@ hi! tell us about yourself and add your birth info to
 <br>
 <br>
 
-<form action="/edit-profile" method="POST" enctype="multipart/form-data">
+<form action="/edit-profile/{{user._id}}" method="POST" enctype="multipart/form-data">
 
-  <label for="location">Current city</label>
-  <input type="text" name="location">
+  <label for="">Current city</label>
+  <input type="text" name="location" value="{{user.location}}">
 
   <br>
 
   <label for="birthday">Birth date</label>
-  <input type="text" name="birthday">
+  <input type="text" name="birthday" value="{{user.birthday}}">
 
   <br>
 
   <label for="birthtime">Birth time</label>
-  <input type="text" name="birthtime">
+  <input type="text" name="birthtime" value="{{user.birthtime}}">
 
   <br>
 
   <label for="birthplace">Birth place</label>
-  <input type="text" name="birthplace">
+  <input type="text" name="birthplace" value="{{user.birthplace}}">
 
   <br>
 

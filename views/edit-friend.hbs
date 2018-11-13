@@ -1,0 +1,33 @@
+<h1>Edit {{friend.name}}'s card</h1>
+
+
+<form action="/edit-friend/{{friend._id}}" method="POST">
+
+  <label for=" name">Friend's name</label>
+  <input id="name" type="text" name="name" value="{{friend.name}}">
+  <br>
+
+  <label>Date of birth</label>
+  <input type="text" name="birthday" value="{{friend.birthday}}">
+  <br>
+
+  <label>Time of birth</label>
+  <input type="text" name="birthtime" value="{{friend.birthtime}}">
+  <br>
+
+  <label>Place of birth</label>
+  <input type="text" name="birthplace" value="{{friend.birthplace}}">
+  <br>
+
+  <label>Current location</label>
+  <input type="text" name="location" value="{{friend.location}}">
+  <br>
+
+  <label>Upload a photo</label>
+  <input type="file" name="photo">
+  <br>
+
+  <button type="submit">Update Friend</button>
+
+  <br>
+</form>
