@@ -5,12 +5,14 @@ const userSchema = new Schema(
   {
     username: String,
     password: String,
-    birthday: String,
+    birthmonth: Number,
+    birthday: Number,
     birthtime: String,
     birthplace: String,
     location: String,
     imgName: String,
-    imgPath: String
+    imgPath: String,
+    zodiac: String
   },
   {
     timestamps: {
