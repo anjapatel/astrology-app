@@ -20,18 +20,18 @@ router.get("/", ensureAuthenticated, (req, res) => {
   Friend.find()
     .then(friendsFromDb => {
       res.render("index", {
+        user: req.user,
         listOfFriends: friendsFromDb
       });
     })
     .catch(error => {
       console.log(error);
     });
-  /* res.render("index", { user: req.user }); */
 });
 
-/* Get User profile ======================================================== */
 
-router.get("/edit-profile/:id", ensureAuthenticated, (req, res) => {
+/* Get User profile ======================================================== */
+router.get("/edit-profile/:id", ensureAuthenticated, (req, res, next) => {
   User.findOne({ _id: req.user_id }).then(users => {
     const user = req.user;
     res.render("user-create-chart", { user });
@@ -54,13 +54,13 @@ router.post(
       {
         $set: {
           location,
-          birthday,
+          // birthday,
           birthmonth,
           birthtime,
           birthplace,
           imgPath,
           imgName,
-          zodiac: createZodiac({ birthmonth, birthday })
+          // zodiac: createZodiac({ birthmonth, birthday })
         }
       },
       { new: true }
@@ -77,8 +77,7 @@ router.post(
 );
 
 /* direct to profile ========================================================== */
-
-router.get("/profile", ensureAuthenticated, (req, res) => {
+router.get("/profile", ensureAuthenticated, (req, res, next) => {
   User.findOne().then(user => {
     res.render("user-profile", { user: req.user });
   });
@@ -94,8 +93,8 @@ router.get("/compatibility/:id", (req, res, next) => {
   });
 });
 
-/* Add Friend ========================================================== */
 
+/* Add Friend ========================================================== */
 router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
   res.render("add-friend", { user: req.user });
 });
@@ -103,9 +102,9 @@ router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
 // uploadCloud.single('photo') is a middleware
 // the parameter is 'photo' because we have
 // --->  <input type="file" name="photo">
+
 router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
-  const imgPath = req.file.url;
-  const imgName = req.file.originalname;
+
   const {
     name,
     birthmonth,
@@ -115,7 +114,7 @@ router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
     location
   } = req.body;
 
-  const newFriend = new Friend({
+  let friend = {
     name,
     birthday,
     birthmonth,
@@ -123,9 +122,19 @@ router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
     birthplace,
     location,
     zodiac: createZodiac({ birthmonth, birthday }),
-    imgPath,
-    imgName
-  });
+  }
+
+  if (req.file) {
+    friend.imgPath = req.file.url;
+    friend.imgName = req.file.originalname;
+  }
+
+  // if (name === "" || birthmonth === "" || birthday === "" || birthplace === "" || location === "") {
+  //   res.render("../views/add-friend", { message: "Please complete all fields" });
+  //   return;
+  // }
+
+  const newFriend = new Friend(friend);
   newFriend
     .save()
     .then(newfriend => {
@@ -161,11 +170,9 @@ router.post(
   "/edit-friend/:id",
   uploadCloud.single("photo"),
   (req, res, next) => {
-    const imgPath = req.file.url;
-    const imgName = req.file.originalname;
-    console.log("HEEEEELLLLLOOOOOOO");
-    // console.log(req.params.id)
-    Friend.findByIdAndUpdate(req.params.id, {
+    const birthmonth = req.body.birthmonth
+    const birthday = req.body.birthday
+    let update = {
       name: req.body.name,
       birthday: req.body.birthday,
       birthmonth: req.body.birthmonth,
@@ -173,9 +180,12 @@ router.post(
       birthplace: req.body.birthplace,
       location: req.body.location,
       zodiac: createZodiac({ birthmonth, birthday }),
-      imgPath,
-      imgName
-    }).then(friend => {
+    }
+    if (req.file) {
+      update.imgPath = req.file.url;
+      update.imgName = req.file.originalname;
+    }
+    Friend.findByIdAndUpdate(req.params.id, update).then(friend => {
       console.log("req.body.birthday");
       res.redirect("/" + friend._id);
     });
