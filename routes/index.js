@@ -87,12 +87,13 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
 /* Compatibility page ========================================================== */
 router.get("/compatibility/:id", (req, res, next) => {
   Friend.findById(req.params.id).then(friend => {
+    const zodiac = req.params.zodiac;
+    console.log(zodiac);
     res.render("compatibility", {
       user: req.user,
       friend
     });
   });
-  // console.log(friend.zodiac);
 });
 
 /* Add Friend ========================================================== */
@@ -105,8 +106,6 @@ router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
 // the parameter is 'photo' because we have
 // --->  <input type="file" name="photo">
 router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
-  const imgPath = req.file.url;
-  const imgName = req.file.originalname;
   const {
     name,
     birthmonth,
@@ -115,26 +114,24 @@ router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
     birthplace,
     location
   } = req.body;
-
-  const newFriend = new Friend({
+  let friend = {
     name,
     birthday,
     birthmonth,
     birthtime,
     birthplace,
     location,
-    zodiac: createZodiac({ birthmonth, birthday }),
-    imgPath,
-    imgName
+    zodiac: createZodiac({ birthmonth, birthday })
+  };
+  if (req.file) {
+    friend.imgPath = req.file.url;
+    friend.imgName = req.file.originalname;
+  }
+
+  const newFriend = new Friend(friend);
+  newFriend.save().then(newfriend => {
+    res.redirect("/");
   });
-  newFriend
-    .save()
-    .then(newfriend => {
-      res.redirect("/");
-    })
-    .catch(error => {
-      console.log(error);
-    });
 });
 
 /* Friend detail page ========================================================== */
@@ -158,25 +155,51 @@ router.get("/edit-friend/:id", (req, res, next) => {
   });
 });
 
+// router.post(
+//   "/edit-friend/:id",
+//   uploadCloud.single("photo"),
+//   (req, res, next) => {
+//     const imgPath = req.file.url;
+//     const imgName = req.file.originalname;
+//     console.log("HEEEEELLLLLOOOOOOO");
+//     // console.log(req.params.id)
+//     Friend.findByIdAndUpdate(req.params.id, {
+//       name: req.body.name,
+//       birthday: req.body.birthday,
+//       birthmonth: req.body.birthmonth,
+//       birthtime: req.body.birthtime,
+//       birthplace: req.body.birthplace,
+//       location: req.body.location,
+//       zodiac: createZodiac({ birthmonth, birthday }),
+//       imgPath,
+//       imgName
+//     }).then(friend => {
+//       console.log("req.body.birthday");
+//       res.redirect("/" + friend._id);
+//     });
+//   }
+// );
+
 router.post(
   "/edit-friend/:id",
   uploadCloud.single("photo"),
   (req, res, next) => {
-    const imgPath = req.file.url;
-    const imgName = req.file.originalname;
-    console.log("HEEEEELLLLLOOOOOOO");
-    // console.log(req.params.id)
-    Friend.findByIdAndUpdate(req.params.id, {
+    const birthmonth = req.body.birthmonth;
+    const birthday = req.body.birthday;
+    let update = {
       name: req.body.name,
       birthday: req.body.birthday,
       birthmonth: req.body.birthmonth,
       birthtime: req.body.birthtime,
       birthplace: req.body.birthplace,
       location: req.body.location,
-      zodiac: createZodiac({ birthmonth, birthday }),
-      imgPath,
-      imgName
-    }).then(friend => {
+      zodiac: createZodiac({ birthmonth, birthday })
+    };
+    if (req.file) {
+      update.imgPath = req.file.url;
+      update.imgName = req.file.originalname;
+    }
+    Friend.findByIdAndUpdate(req.params.id, update).then(friend => {
       console.log("req.body.birthday");
       res.redirect("/" + friend._id);
     });
