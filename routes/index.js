@@ -88,8 +88,7 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
 /* Compatibility page ========================================================== */
 router.get("/compatibility/:id", (req, res, next) => {
   Friend.findById(req.params.id).then(friend => {
-    const zodiac = req.params.zodiac;
-    console.log(zodiac);
+    console.log("this is the friend zodiac", friend.zodiac);
     res.render("compatibility", {
       user: req.user,
       friend
@@ -103,9 +102,6 @@ router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
   res.render("add-friend", { user: req.user });
 });
 
-// uploadCloud.single('photo') is a middleware
-// the parameter is 'photo' because we have
-// --->  <input type="file" name="photo">
 router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
   const {
     name,
@@ -155,31 +151,6 @@ router.get("/edit-friend/:id", (req, res, next) => {
     res.render("edit-friend", { friend });
   });
 });
-
-// router.post(
-//   "/edit-friend/:id",
-//   uploadCloud.single("photo"),
-//   (req, res, next) => {
-//     const imgPath = req.file.url;
-//     const imgName = req.file.originalname;
-//     console.log("HEEEEELLLLLOOOOOOO");
-//     // console.log(req.params.id)
-//     Friend.findByIdAndUpdate(req.params.id, {
-//       name: req.body.name,
-//       birthday: req.body.birthday,
-//       birthmonth: req.body.birthmonth,
-//       birthtime: req.body.birthtime,
-//       birthplace: req.body.birthplace,
-//       location: req.body.location,
-//       zodiac: createZodiac({ birthmonth, birthday }),
-//       imgPath,
-//       imgName
-//     }).then(friend => {
-//       console.log("req.body.birthday");
-//       res.redirect("/" + friend._id);
-//     });
-//   }
-// );
 
 router.post(
   "/edit-friend/:id",
