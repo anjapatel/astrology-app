@@ -105,8 +105,7 @@ router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
 // the parameter is 'photo' because we have
 // --->  <input type="file" name="photo">
 router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
-  const imgPath = req.file.url;
-  const imgName = req.file.originalname;
+
   const {
     name,
     birthmonth,
@@ -115,8 +114,7 @@ router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
     birthplace,
     location
   } = req.body;
-
-  const newFriend = new Friend({
+  let friend = {
     name,
     birthday,
     birthmonth,
@@ -124,9 +122,16 @@ router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
     birthplace,
     location,
     zodiac: createZodiac({ birthmonth, birthday }),
-    imgPath,
-    imgName
-  });
+  }
+  if (req.file) {
+    friend.imgPath = req.file.url;
+    friend.imgName = req.file.originalname;
+  }
+  // if (name === "" || birthmonth === "" || birthday === "" || birthplace === "" || location === "") {
+  //   res.render("../views/add-friend", { message: "Please complete all fields" });
+  //   return;
+  // }
+  const newFriend = new Friend(friend);
   newFriend
     .save()
     .then(newfriend => {
@@ -162,21 +167,22 @@ router.post(
   "/edit-friend/:id",
   uploadCloud.single("photo"),
   (req, res, next) => {
-    const imgPath = req.file.url;
-    const imgName = req.file.originalname;
-    console.log("HEEEEELLLLLOOOOOOO");
-    // console.log(req.params.id)
-    Friend.findByIdAndUpdate(req.params.id, {
+    const birthmonth = req.body.birthmonth;
+    const birthday = req.body.birthday;
+    let update = {
       name: req.body.name,
       birthday: req.body.birthday,
       birthmonth: req.body.birthmonth,
       birthtime: req.body.birthtime,
       birthplace: req.body.birthplace,
       location: req.body.location,
-      zodiac: createZodiac({ birthmonth, birthday }),
-      imgPath,
-      imgName
-    }).then(friend => {
+      zodiac: createZodiac({ birthmonth, birthday })
+    };
+    if (req.file) {
+      update.imgPath = req.file.url;
+      update.imgName = req.file.originalname;
+    }
+    Friend.findByIdAndUpdate(req.params.id, update).then(friend => {
       console.log("req.body.birthday");
       res.redirect("/" + friend._id);
     });
