@@ -1,6 +1,12 @@
 module.exports = {
   calculateCompatability: (friendZodiac, userZodiac) => {
-    console.log("calling the user from the function " + userZodiac);
+    console.log(
+      "calling the user " +
+        userZodiac +
+        " and calling the friend" +
+        friendZodiac
+    );
+    let points = 0;
     switch (userZodiac) {
       case "Capricorn":
         {

@@ -18,7 +18,6 @@ module.exports = {
     let day = user.birthday;
     let month = user.birthmonth - 1;
     let zodiacSign = "";
-    console.log(month + " this is the month from the switch statement");
 
     switch (month) {
       case 0:
