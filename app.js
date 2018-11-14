@@ -15,7 +15,7 @@ const flash = require("connect-flash");
 
 mongoose
   .connect(
-    "mongodb://localhost/astrology-app",
+    process.env.MONGODB_URI || "mongodb://localhost/astrology-app",
     { useNewUrlParser: true }
   )
   .then(x => {
@@ -81,6 +81,7 @@ app.use(flash());
 require("./passport")(app);
 
 app.use((req, res, next) => {
+  //res.locals.user = req.user;
   res.locals.isConnected = !!req.user;
   next(); // to go to the next middleware
 });

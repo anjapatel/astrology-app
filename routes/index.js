@@ -3,7 +3,7 @@ const User = require("../models/User");
 const Friend = require("../models/Friend");
 const uploadCloud = require("../config/cloudinary");
 const createZodiac = require("../utils").createZodiac;
-const calculateCompatability = require("../utils").calculateCompatability;
+const calculateCompatability = require("../calculation").calculateCompatability;
 const router = express.Router();
 
 function ensureAuthenticated(req, res, next) {
@@ -87,8 +87,22 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
 
 /* Compatibility page ========================================================== */
 router.get("/compatibility/:id", (req, res, next) => {
+  const userZodiac = req.user.zodiac;
+  // compatability = calculateCompatability(friendZodiac, userZodiac);
   Friend.findById(req.params.id).then(friend => {
-    console.log("this is the friend zodiac", friend.zodiac);
+    const friendZodiac = friend.zodiac;
+    // compatability = calculateCompatability(friendZodiac, userZodiac);
+    // console.log(compatability);
+    console.log(
+      "this is the compatability " +
+        calculateCompatability(friendZodiac, userZodiac)
+    );
+    console.log(
+      "this is the user zodiac " +
+        userZodiac +
+        " and their friend " +
+        friendZodiac
+    );
     res.render("compatibility", {
       user: req.user,
       friend
