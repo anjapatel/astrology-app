@@ -14,12 +14,12 @@ module.exports = {
       "Scorpio",
       "Sagittarius"
     ];
-    // console.log("this is the user " + user);
+
     let day = user.birthday;
     let month = user.birthmonth - 1;
     let zodiacSign = "";
-    // console.log("This is the user birth mont" + user.birthmonth);
-    // console.log("This is the user birth day" + user.birthday);
+    console.log(month + " this is the month from the switch statement");
+
     switch (month) {
       case 0:
         {

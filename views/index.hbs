@@ -1,6 +1,6 @@
 <a href="/profile">
   <section>
-    <img src="{{user.imgPath}}" alt="User profile image">
+    <img src="{{user.imgPath}}" alt="User profile image"><br>
     Name: {{user.username}}
     <br>
     <br>
@@ -38,10 +38,11 @@
         <span>{{this.birthtime}}</span><br>
         <span>{{this.birthplace}}</span><br>
         <span>{{this.location}}</span><br>
+        <span>zodiac !{{this.zodiac}}</span><br>
       </p>
 </a>
 <a href="/compatibility/{{this._id}}" class="btn btn-primary">See compatibility</a><br>
-<a href="/edit-profile/{{user._id}}">Edit</a>
+<a href="/edit-friend/{{this._id}}">Edit</a>
 <a href="/{{this._id}}/delete">Delete</a>
 </div>
 
