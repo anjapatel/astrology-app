@@ -6321,15 +6321,17 @@ a {
 
 /* Login page ===================================================== */
 .login-wrapper {
-  color: white;
-  justify-content: center;
-  align-items: center; }
+  color: white; }
 
-.login-form-container {
+.login-form-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  flex-direction: column; }
+  align-content: center;
+  width: 400px; }
+
+.inline-block {
+  display: inline-block; }
 
 @keyframes move-twink-back {
   from {

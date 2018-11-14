@@ -9,24 +9,25 @@ body {
 }
 
 a {
-  color:black;
+  color: black;
 }
 
 /* Login page ===================================================== */
 .login-wrapper {
   color: white;
-  // display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.login-form-container {
+.login-form-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 400px;
 }
 
+.inline-block {
+  display: inline-block;
+}
 
 
 // .auth-background {
