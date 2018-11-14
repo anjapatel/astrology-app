@@ -1,3 +1,21 @@
+<section>
+  <img src="{{user.imgPath}}" alt="">
+  Name: {{user.username}}
+
+  Location: {{user.location}}
+
+  Birthtime: {{user.birthtime}}
+
+  Birth month: {{user.birthmonth}}
+
+  Birth day: {{user.birthday}}
+
+  Birthplace: {{user.birthplace}}
+
+  Zodiac: {{user.zodiac}}
+
+</section>
+
 <h1>here are all your friends
 </h1>
 <div class="card-deck">
@@ -19,7 +37,7 @@
   </a>
 </div>
 
-<a href="/edit-profile/{{user._id}}">Edit</a>
+<a href="/edit-friend/{{this._id}}">Edit</a>
 <a href="/{{this._id}}/delete">Delete</a>
 <a href="/compatibility/{{this._id}}" class="btn btn-primary">See compatibility</a><br>
 
