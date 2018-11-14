@@ -20,7 +20,8 @@ router.get("/", ensureAuthenticated, (req, res) => {
   Friend.find()
     .then(friendsFromDb => {
       res.render("index", {
-        listOfFriends: friendsFromDb
+        listOfFriends: friendsFromDb,
+        user: req.user
       });
     })
     .catch(error => {
@@ -87,12 +88,13 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
 /* Compatibility page ========================================================== */
 router.get("/compatibility/:id", (req, res, next) => {
   Friend.findById(req.params.id).then(friend => {
+    const zodiac = req.params.zodiac;
+    console.log(zodiac);
     res.render("compatibility", {
       user: req.user,
       friend
     });
   });
-  // console.log(friend.zodiac);
 });
 
 /* Add Friend ========================================================== */
@@ -105,7 +107,6 @@ router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
 // the parameter is 'photo' because we have
 // --->  <input type="file" name="photo">
 router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
-
   const {
     name,
     birthmonth,
@@ -121,25 +122,17 @@ router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
     birthtime,
     birthplace,
     location,
-    zodiac: createZodiac({ birthmonth, birthday }),
-  }
+    zodiac: createZodiac({ birthmonth, birthday })
+  };
   if (req.file) {
     friend.imgPath = req.file.url;
     friend.imgName = req.file.originalname;
   }
-  // if (name === "" || birthmonth === "" || birthday === "" || birthplace === "" || location === "") {
-  //   res.render("../views/add-friend", { message: "Please complete all fields" });
-  //   return;
-  // }
+
   const newFriend = new Friend(friend);
-  newFriend
-    .save()
-    .then(newfriend => {
-      res.redirect("/");
-    })
-    .catch(error => {
-      console.log(error);
-    });
+  newFriend.save().then(newfriend => {
+    res.redirect("/");
+  });
 });
 
 /* Friend detail page ========================================================== */
@@ -162,6 +155,31 @@ router.get("/edit-friend/:id", (req, res, next) => {
     res.render("edit-friend", { friend });
   });
 });
+
+// router.post(
+//   "/edit-friend/:id",
+//   uploadCloud.single("photo"),
+//   (req, res, next) => {
+//     const imgPath = req.file.url;
+//     const imgName = req.file.originalname;
+//     console.log("HEEEEELLLLLOOOOOOO");
+//     // console.log(req.params.id)
+//     Friend.findByIdAndUpdate(req.params.id, {
+//       name: req.body.name,
+//       birthday: req.body.birthday,
+//       birthmonth: req.body.birthmonth,
+//       birthtime: req.body.birthtime,
+//       birthplace: req.body.birthplace,
+//       location: req.body.location,
+//       zodiac: createZodiac({ birthmonth, birthday }),
+//       imgPath,
+//       imgName
+//     }).then(friend => {
+//       console.log("req.body.birthday");
+//       res.redirect("/" + friend._id);
+//     });
+//   }
+// );
 
 router.post(
   "/edit-friend/:id",

@@ -11,7 +11,7 @@ const userSchema = new Schema(
     birthplace: String,
     location: String,
     imgName: String,
-    imgPath: String,
+    imgPath: { type: String, default: "https://res.cloudinary.com/dvgji8j2h/image/upload/v1542134871/edgar-cayce-on-astrology.png" },
     zodiac: String
   },
   {
