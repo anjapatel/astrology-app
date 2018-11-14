@@ -88,8 +88,7 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
 /* Compatibility page ========================================================== */
 router.get("/compatibility/:id", (req, res, next) => {
   Friend.findById(req.params.id).then(friend => {
-    zodiac = req.params.zodiac;
-    console.log(zodiac);
+    console.log("this is the friend zodiac", friend.zodiac);
     res.render("compatibility", {
       user: req.user,
       friend
