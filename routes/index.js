@@ -91,12 +91,17 @@ router.get("/compatibility/:id", (req, res, next) => {
   console.log("this is the user zodiac" + userZodiac);
   Friend.findById(req.params.id).then(friend => {
     const friendZodiac = friend.zodiac;
-    console.log("This is the friend zodiac" + friendZodiac);
-    console.log(userZodiac + "please work" + friendZodiac);
-    // const compatability = calculateCompatability({friendZodiac, userZodiac})
+    console.log(
+      "this is the user zodiac " +
+        userZodiac +
+        " and their friend " +
+        friendZodiac
+    );
+
     res.render("compatibility", {
       user: req.user,
-      friend
+      friend,
+      compatability
     });
   });
 });
