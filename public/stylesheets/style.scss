@@ -1,8 +1,12 @@
+$primary: purple;
+
+//import SCSS of boostrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }

@@ -3,6 +3,7 @@ const User = require("../models/User");
 const Friend = require("../models/Friend");
 const uploadCloud = require("../config/cloudinary");
 const createZodiac = require("../utils").createZodiac;
+const calculateCompatability = require("../utils").calculateCompatability;
 const router = express.Router();
 
 function ensureAuthenticated(req, res, next) {
@@ -44,6 +45,10 @@ router.post(
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
     const { location, birthday, birthmonth, birthtime, birthplace } = req.body;
+    // if (req.file && imgPath) {
+    //   update.imgPath = req.file.url;
+    // }
+    console.log("_____________________________", req.file);
     User.updateOne(
       { _id: req.user._id },
       {
@@ -75,12 +80,7 @@ router.post(
 
 router.get("/profile", ensureAuthenticated, (req, res) => {
   User.findOne().then(user => {
-    // console.log("this is my zodiac sign " + createZodiac(req.user));
-    res.render(
-      "user-profile",
-      { user: req.user }
-      // { zodiac: createZodiac(req.user) }
-    );
+    res.render("user-profile", { user: req.user });
   });
 });
 

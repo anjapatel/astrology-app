@@ -1,25 +1,33 @@
-{{#each listOfFriends}}
+<h1>here are all your friends
+</h1>
+<div class="card-deck">
+  {{#each listOfFriends}}
 
-<a href="/{{this._id}}">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{this.imgPath}}" alt="Card image cap">
+  <a href="/{{this._id}}">
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{this.imgPath}}" alt="Card image cap">
 
-    <div class="card-body">
-      <h5 class="card-title">{{this.name}}</h5>
-      <p class="card-text">
-        <span>{{this.birthday}}</span><br>
-        <span>{{this.birthtime}}</span><br>
-        <span>{{this.birthplace}}</span><br>
-        <span>{{this.location}}</span><br>
-        <span>zodiac !{{this.zodiac}}</span><br>
-      </p>
-</a>
-<a href="/compatibility/{{this._id}}" class="btn btn-primary">See compatibility</a><br>
+      <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <p class="card-text">
+          <span>{{this.birthday}}</span><br>
+          <span>{{this.birthtime}}</span><br>
+          <span>{{this.birthplace}}</span><br>
+          <span>{{this.location}}</span><br>
+          <span>zodiac !{{this.zodiac}}</span><br>
+        </p>
+  </a>
+</div>
+
 <a href="/edit-profile/{{user._id}}">Edit</a>
 <a href="/{{this._id}}/delete">Delete</a>
+<a href="/compatibility/{{this._id}}" class="btn btn-primary">See compatibility</a><br>
+
 </div>
 
 {{else}}
 <p>You have no friends yet!<br> Sadness!<br> <a href="/add-friend">Add a friend</a> or get a random celeb</p>
 
 {{/each}}
+
+</div>
