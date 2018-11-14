@@ -1,362 +1,396 @@
 module.exports = {
   calculateCompatability: (friendZodiac, userZodiac) => {
-    console.log(
-      "calling the user " +
-        userZodiac +
-        " and calling the friend" +
-        friendZodiac
-    );
+    // console.log(
+    //   "calling the user " +
+    //     userZodiac +
+    //     " and calling the friend" +
+    //     friendZodiac
+    // );
+    let user = userZodiac;
+    let friend = friendZodiac;
+    // console.log(friendZodiac);
+    // console.log(friend);
     let points = 0;
-    switch (userZodiac) {
+    switch (user) {
       case "Capricorn":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Aquarius":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Pisces":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Aries":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Taurus":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Gemini":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Cancer":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Leo":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Virgo":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Libra":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Scorpio":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
       case "Sagittarius":
         {
-          if ((friendZodiac = "Capricorn")) {
+          if (friend === "Capricorn") {
+            points += 1;
+          } else if (friend === "Aquarius") {
+            points += 2;
+          } else if (friend === "Pisces") {
+            points += 3;
+          } else if (friend === "Aries") {
+            points += 4;
+          } else if (friend === "Taurus") {
+            points += 5;
+          } else if (friend === "Gemini") {
+            points += 6;
+          } else if (friend === "Cancer") {
             points += 7;
-          } else if ((friendZodiac = "Aquarius")) {
-            points += 7;
-          } else if ((friendZodiac = "Pisces")) {
-            points += 7;
-          } else if ((friendZodiac = "Aries")) {
-            points += 7;
-          } else if ((friendZodiac = "Taurus")) {
-            points += 7;
-          } else if ((friendZodiac = "Gemini")) {
-            points += 7;
-          } else if ((friendZodiac = "Cancer")) {
-            points += 7;
-          } else if ((friendZodiac = "Leo")) {
-            points += 7;
-          } else if ((friendZodiac = "Virgo")) {
-            points += 7;
-          } else if ((friendZodiac = "Libra")) {
-            points += 7;
-          } else if ((friendZodiac = "Scorpio")) {
-            points += 7;
-          } else if ((friendZodiac = "Sagittarius")) {
-            points += 7;
+          } else if (friend === "Leo") {
+            points += 8;
+          } else if (friend === "Virgo") {
+            points += 9;
+          } else if (friend === "Libra") {
+            points += 10;
+          } else if (friend === "Scorpio") {
+            points += 11;
+          } else if (friend === "Sagittarius") {
+            points += 12;
           }
         }
         break;
     }
-    return points;
+
+    console.log("these are the ppoints " + points);
+    return returnScore(points);
   }
 };
+
+function returnScore(points) {
+  if ((points = 1)) {
+    return "You're basically mortal enemies. Please avoid each other at all costs.";
+  } else if ((points = 2)) {
+    return "Ehhhhhhhhhhh proceed with caution. You probably don't get along TOO well.";
+  } else if ((points = 3)) {
+    return "So. Your friendship will probably seem promising at first, but will likely go down in flames. Best of luck.";
+  } else if ((points = 4)) {
+    return "Your relationship will be tepid at best. Lukewarm conversations? Hell yes.";
+  } else if ((points = 5)) {
+    return "Wow you're super compatable!";
+  } else if ((points = 6)) {
+    return "Wow you're super compatable!";
+  } else if ((points = 7)) {
+    return "Wow you're super compatable!";
+  } else if ((points = 8)) {
+    return "Wow you're super compatable!";
+  } else if ((points = 9)) {
+    return "Wow you're super compatable!";
+  } else if ((points = 10)) {
+    return "Wow you're super compatable!";
+  } else if ((points = 11)) {
+    return "Wow you're super compatable!";
+  } else if ((points = 12)) {
+    return "Wow you're super compatable!";
+  }
+}

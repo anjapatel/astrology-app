@@ -88,24 +88,18 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
 /* Compatibility page ========================================================== */
 router.get("/compatibility/:id", (req, res, next) => {
   const userZodiac = req.user.zodiac;
-  // compatability = calculateCompatability(friendZodiac, userZodiac);
   Friend.findById(req.params.id).then(friend => {
     const friendZodiac = friend.zodiac;
-    // compatability = calculateCompatability(friendZodiac, userZodiac);
-    // console.log(compatability);
-    console.log(
-      "this is the compatability " +
-        calculateCompatability(friendZodiac, userZodiac)
-    );
-    console.log(
-      "this is the user zodiac " +
-        userZodiac +
-        " and their friend " +
-        friendZodiac
-    );
+    const compatability = calculateCompatability(friendZodiac, userZodiac);
+    // console.log(
+    //   "this is the compatability " +
+    //     calculateCompatability(friendZodiac, userZodiac)
+    // );
+    console.log("this is the compatability score " + compatability);
     res.render("compatibility", {
       user: req.user,
-      friend
+      friend,
+      compatability
     });
   });
 });
