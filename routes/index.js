@@ -19,18 +19,18 @@ router.get("/", ensureAuthenticated, (req, res) => {
   Friend.find()
     .then(friendsFromDb => {
       res.render("index", {
+        user: req.user,
         listOfFriends: friendsFromDb
       });
     })
     .catch(error => {
       console.log(error);
     });
-  /* res.render("index", { user: req.user }); */
 });
 
-/* Get User profile ======================================================== */
 
-router.get("/edit-profile/:id", ensureAuthenticated, (req, res) => {
+/* Get User profile ======================================================== */
+router.get("/edit-profile/:id", ensureAuthenticated, (req, res, next) => {
   User.findOne({ _id: req.user_id }).then(users => {
     const user = req.user;
     res.render("user-create-chart", { user });
@@ -43,20 +43,20 @@ router.post(
   (req, res, next) => {
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
-    const { location, birthday, birthmonth, birthtime, birthplace } = req.body;
+    const { location, birthmonth, birthtime, birthplace } = req.body;
     // const zodiac = createZodiac(req.user);
     User.updateOne(
       { _id: req.user._id },
       {
         $set: {
           location,
-          birthday,
+          // birthday,
           birthmonth,
           birthtime,
           birthplace,
           imgPath,
           imgName,
-          zodiac: createZodiac({ birthmonth, birthday })
+          // zodiac: createZodiac({ birthmonth, birthday })
         }
       },
       { new: true }
@@ -74,7 +74,7 @@ router.post(
 //   }
 // );
 
-router.get("/profile", ensureAuthenticated, (req, res) => {
+router.get("/profile", ensureAuthenticated, (req, res, next) => {
   User.findOne().then(user => {
     // console.log("this is my zodiac sign " + createZodiac(req.user));
     res.render(
@@ -156,7 +156,6 @@ router.post('/edit-friend/:id', uploadCloud.single('photo'),
   (req, res, next) => {
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
-    console.log("HEEEEELLLLLOOOOOOO")
     // console.log(req.params.id)
     Friend.findByIdAndUpdate(req.params.id, {
       name: req.body.name,

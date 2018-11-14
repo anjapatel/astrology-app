@@ -1,3 +1,30 @@
+<a href="/profile">
+  <section>
+    <img src="{{user.imgPath}}" alt="User profile image">
+    Name: {{user.username}}
+    <br>
+    <br>
+    Location: {{user.location}}
+    <br>
+    <br>
+    Birthtime: {{user.birthtime}}
+    <br>
+    <br>
+    Birth month: {{user.birthmonth}}
+    <br>
+    <br>
+    Birth day: {{user.birthday}}
+    <br>
+    <br>
+    Birthplace: {{user.birthplace}}
+    <br>
+    <br>
+    Zodiac: {{user.zodiac}}
+    <br>
+    <br>
+  </section>
+</a>
+
 {{#each listOfFriends}}
 
 <a href="/{{this._id}}">

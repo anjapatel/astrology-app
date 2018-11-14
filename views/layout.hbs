@@ -17,11 +17,13 @@
 
 <body>
 
+
   <nav>
 
     {{!-- <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a> --}}
     {{#if isConnected}}
+
     <a href="/">Home</a>
     <a href="/profile/{{req.user._id}}">Profile</a>
     <a href="/add-friend">Add Friend</a>

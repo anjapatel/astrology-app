@@ -1,8 +1,15 @@
+* {
+  margin: 0;
+  padding: 0; }
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: black; }
 
 a {
   color: #00B7FF; }
+
+.auth-background {
+  z-index: 0; }
 
 /*# sourceMappingURL=style.css.map */
