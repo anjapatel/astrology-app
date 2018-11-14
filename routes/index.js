@@ -20,7 +20,8 @@ router.get("/", ensureAuthenticated, (req, res) => {
   Friend.find()
     .then(friendsFromDb => {
       res.render("index", {
-        listOfFriends: friendsFromDb
+        listOfFriends: friendsFromDb,
+        user: req.user
       });
     })
     .catch(error => {
