@@ -44,7 +44,6 @@ router.post(
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
     const { location, birthday, birthmonth, birthtime, birthplace } = req.body;
-    // const zodiac = createZodiac(req.user);
     User.updateOne(
       { _id: req.user._id },
       {
@@ -71,8 +70,8 @@ router.post(
       });
   }
 );
-//   }
-// );
+
+/* direct to profile ========================================================== */
 
 router.get("/profile", ensureAuthenticated, (req, res) => {
   User.findOne().then(user => {
@@ -85,18 +84,15 @@ router.get("/profile", ensureAuthenticated, (req, res) => {
   });
 });
 
-
 /* Compatibility page ========================================================== */
 router.get("/compatibility/:id", (req, res, next) => {
-  Friend.findById(req.params.id)
-    .then(friend => {
-      res.render("compatibility", {
-        user: req.user,
-        friend
-      })
-    })
+  Friend.findById(req.params.id).then(friend => {
+    res.render("compatibility", {
+      user: req.user,
+      friend
+    });
+  });
 });
-
 
 /* Add Friend ========================================================== */
 
@@ -110,19 +106,29 @@ router.get("/add-friend", ensureAuthenticated, (req, res, next) => {
 router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
   const imgPath = req.file.url;
   const imgName = req.file.originalname;
+  const {
+    name,
+    birthmonth,
+    birthday,
+    birthtime,
+    birthplace,
+    location
+  } = req.body;
+
   const newFriend = new Friend({
-    name: req.body.name,
-    birthday: req.body.birthday,
-    birthtime: req.body.birthtime,
-    birthplace: req.body.birthplace,
-    location: req.body.location,
+    name,
+    birthday,
+    birthmonth,
+    birthtime,
+    birthplace,
+    location,
+    zodiac: createZodiac({ birthmonth, birthday }),
     imgPath,
     imgName
   });
   newFriend
     .save()
-    .then(friend => {
-      //console.log("A new friend was added:  " + friend._id);
+    .then(newfriend => {
       res.redirect("/");
     })
     .catch(error => {
@@ -145,33 +151,36 @@ router.get("/:id", (req, res, next) => {
 });
 
 /* Edit Friend  =============================================================*/
-router.get('/edit-friend/:id', (req, res, next) => {
-  Friend.findById(req.params.id)
-    .then(friend => {
-      res.render('edit-friend', { friend })
-    })
-})
+router.get("/edit-friend/:id", (req, res, next) => {
+  Friend.findById(req.params.id).then(friend => {
+    res.render("edit-friend", { friend });
+  });
+});
 
-router.post('/edit-friend/:id', uploadCloud.single('photo'),
+router.post(
+  "/edit-friend/:id",
+  uploadCloud.single("photo"),
   (req, res, next) => {
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
-    console.log("HEEEEELLLLLOOOOOOO")
+    console.log("HEEEEELLLLLOOOOOOO");
     // console.log(req.params.id)
     Friend.findByIdAndUpdate(req.params.id, {
       name: req.body.name,
       birthday: req.body.birthday,
+      birthmonth: req.body.birthmonth,
       birthtime: req.body.birthtime,
       birthplace: req.body.birthplace,
       location: req.body.location,
+      zodiac: createZodiac({ birthmonth, birthday }),
       imgPath,
       imgName
-    })
-      .then(friend => {
-        console.log("req.body.birthday")
-        res.redirect('/' + friend._id)
-      })
-  })
+    }).then(friend => {
+      console.log("req.body.birthday");
+      res.redirect("/" + friend._id);
+    });
+  }
+);
 
 /* Delete Friend ========================================================== */
 router.get("/:id/delete", (req, res, next) => {
@@ -179,7 +188,5 @@ router.get("/:id/delete", (req, res, next) => {
     res.redirect("/");
   });
 });
-
-
 
 module.exports = router;
