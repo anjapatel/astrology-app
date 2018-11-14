@@ -1,31 +1,22 @@
-<<<<<<< HEAD
 $primary: purple;
 
 //import SCSS of boostrap
 @import "node_modules/bootstrap/scss/bootstrap";
-=======
-* {
-  margin: 0;
-  padding: 0;
-}
->>>>>>> 413f041200d5916084781d4b87eaad8d13b001d3
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color:black;
+  color: black;
 }
 
 a {
   color: #00b7ff;
 }
 
-
-.auth-background {
-  // background-image: url("https://res.cloudinary.com/dvgji8j2h/image/upload/v1542134878/astrology-night-sky.jpg");
-  z-index:0;
-  // height: 100vh;
-}
-
+// .auth-background {
+//   // background-image: url("https://res.cloudinary.com/dvgji8j2h/image/upload/v1542134878/astrology-night-sky.jpg");
+//   z-index: 0;
+//   // height: 100vh;
+// }
 
 // header {
 //   background-color:rgba(33, 33, 33, 0.9);
