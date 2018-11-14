@@ -1,19 +1,21 @@
 <section>
-  <img src="{{user.imgPath}}" alt="">
-  Name: {{user.username}}
+  <a href="/profile/{{req.user._id}}">
 
-  Location: {{user.location}}
+    <img src="{{user.imgPath}}" alt="">
+    Name: {{user.username}}
 
-  Birthtime: {{user.birthtime}}
+    Location: {{user.location}}
 
-  Birth month: {{user.birthmonth}}
+    Birthtime: {{user.birthtime}}
 
-  Birth day: {{user.birthday}}
+    Birth month: {{user.birthmonth}}
 
-  Birthplace: {{user.birthplace}}
+    Birth day: {{user.birthday}}
 
-  Zodiac: {{user.zodiac}}
+    Birthplace: {{user.birthplace}}
 
+    Zodiac: {{user.zodiac}}
+  </a>
 </section>
 
 <h1>here are all your friends
