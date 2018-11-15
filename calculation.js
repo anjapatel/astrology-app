@@ -1,11 +1,5 @@
 module.exports = {
   calculateCompatability: (friendZodiac, userZodiac) => {
-    // console.log(
-    //   "calling the user " +
-    //     userZodiac +
-    //     " and calling the friend" +
-    //     friendZodiac
-    // );
     let user = userZodiac;
     let friend = friendZodiac;
     // console.log(friendZodiac);

@@ -13,6 +13,10 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 
+hbs.registerHelper("ifEquals", function(arg1, arg2, options) {
+  return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+});
+
 mongoose
   .connect(
     process.env.MONGODB_URI || "mongodb://localhost/astrology-app",
@@ -81,7 +85,6 @@ app.use(flash());
 require("./passport")(app);
 
 app.use((req, res, next) => {
-  //res.locals.user = req.user;
   res.locals.isConnected = !!req.user;
   next(); // to go to the next middleware
 });
