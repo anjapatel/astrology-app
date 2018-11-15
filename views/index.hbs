@@ -4,12 +4,14 @@
   <h4>See how compatible you are with your pals.</h4>
 
 
-  <a href="/profile/{{req.user._id}}"> </a>
+
 
   <div class="container profile-info-wrapper">
     <div class="row">
       <div class="col">
-        <img src="{{user.imgPath}}" height="300" alt="" class="profile-image">
+        <a href="/profile/{{req.user._id}}">
+          <img src="{{user.imgPath}}" height="300" alt="" class="profile-image">
+        </a>
       </div>
 
       <div class="col user-info">
@@ -60,8 +62,9 @@
 
       {{!-- <a href="/{{this._id}}"></a> --}}
       <div class="card " style="width: 18rem;">
-        <img class="card-img-top img-thumbnail" src="{{this.imgPath}}" alt="Card image cap">
-
+        <a href="/{{this._id}}">
+          <img class="card-img-top img-thumbnail" src="{{this.imgPath}}" alt="Card image cap">
+        </a>
         <div class="card-body">
           <h5 class="card-title">{{this.name}}</h5>
           <p class="card-text">
@@ -71,6 +74,7 @@
           <a href="/edit-friend/{{this._id}}">Edit</a>
           <a href="/{{this._id}}/delete">Delete</a>
         </div>
+
       </div>
       {{!-- </a> --}}
 
