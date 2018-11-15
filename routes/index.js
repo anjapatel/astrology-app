@@ -4,7 +4,6 @@ const Friend = require("../models/Friend");
 const uploadCloud = require("../config/cloudinary");
 const createZodiac = require("../utils").createZodiac;
 const calculateCompatability = require("../calculation").calculateCompatability;
-const createDescription = require("../description").createDescription;
 const router = express.Router();
 
 function ensureAuthenticated(req, res, next) {
@@ -124,10 +123,9 @@ router.post("/add-friend", uploadCloud.single("photo"), (req, res, next) => {
     friend.imgPath = req.file.url;
     friend.imgName = req.file.originalname;
   }
-
   const newFriend = new Friend(friend);
   newFriend.save().then(newfriend => {
-    res.redirect("/");
+    res.redirect("/compatibility/" + newFriend._id);
   });
 });
 
