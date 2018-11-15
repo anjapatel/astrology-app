@@ -355,19 +355,32 @@ module.exports = {
     }
 
     // console.log("these are the ppoints " + points);
-    return points;
-    // return returnScore(points);
+    return returnScore(points);
   }
 };
 
 function returnScore(points) {
   if (points <= 3) {
-    return "This is a disasterous pairing. You have a hard time understanding each other, and are likely ill-prepared to read each other's reactions and moods. Miscommunication and frustration are likely down the road. Please proceed with caution.";
-  } else if (points >= 4 && points < 7) {
-    return "Hmmm this one can go either way. If you're willing to put in the effort to acquaint yourselves with each other's communication styles and idiosyncracies, you could find fulfillment in this relationship. But be wary — chances of hurt and misunderstanding are high. It can end in disaster just as easily as it could end in fulfillment.";
-  } else if (points >= 8 && points <= 10) {
-    return "This is a strong match. There might be some hesitation toward getting to know each other at first, but don't let fear triumph over curiosity. You have the chance to nurture a strong connection that will be both fulfilling and joyous.";
-  } else if (points > 10) {
-    return "Your star signs are as compatible as they come. You share a mutual understanding forged by complimentary energies. Whether your relationship is platonic, romantic, or otherwise, it will likely be a great source of fulfillment for both of you.";
+    return 1;
+  } else if (points > 3 && points <= 6) {
+    return 2;
+  } else if (points > 6 && points <= 9) {
+    return 3;
+  } else if (points > 9 && points <= 12) {
+    return 4;
+  } else if (points === 12) {
+    return 5;
   }
 }
+
+// function returnScore(points) {
+//   if (points <= 3) {
+//     return "This is a disasterous pairing. You have a hard time understanding each other, and are likely ill-prepared to read each other's reactions and moods. Miscommunication and frustration are likely down the road. Please proceed with caution.";
+//   } else if (points >= 4 && points < 7) {
+//     return "Hmmm this one can go either way. If you're willing to put in the effort to acquaint yourselves with each other's communication styles and idiosyncracies, you could find fulfillment in this relationship. But be wary — chances of hurt and misunderstanding are high. It can end in disaster just as easily as it could end in fulfillment.";
+//   } else if (points >= 8 && points <= 10) {
+//     return "This is a strong match. There might be some hesitation toward getting to know each other at first, but don't let fear triumph over curiosity. You have the chance to nurture a strong connection that will be both fulfilling and joyous.";
+//   } else if (points > 10) {
+//     return "Your star signs are as compatible as they come. You share a mutual understanding forged by complimentary energies. Whether your relationship is platonic, romantic, or otherwise, it will likely be a great source of fulfillment for both of you.";
+//   }
+// }
