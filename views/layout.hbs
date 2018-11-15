@@ -13,22 +13,23 @@
   <!-- Our CSS -->
   <link rel="stylesheet" href="/stylesheets/style.css">
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Concert+One|Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Concert+One|Roboto:300,400,700" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-md">
-    <a class="navbar-brand" href="/">AstroMatch</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
+  <nav class="navbar navbar-expand-md container-nav">
+    <div class="">
+      <a class="navbar-brand" href="/">AstroMatch</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
     {{!-- <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a> --}}
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse nav-links" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         {{#if isConnected}}
         <a class="nav-item nav-link active" href="/">Home <span class="sr-only"></span> </a>
@@ -38,11 +39,12 @@
         {{/if}}
         </ul>
       </div>
+    </div>
   </nav>
 
-
-  {{{body}}}
-
+  <div class="container-fluid">
+    {{{body}}}
+  </div>
 
 
   <!-- Bootstrap Scripts -->

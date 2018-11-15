@@ -1,43 +1,45 @@
 <header class="header-homepage">
 
-  <h3>Hi {{user.username}}! See how compatible you are with your pals.</h3>
+  <h1>Hi {{user.username}}!</h1>
+  <h4>See how compatible you are with your pals.</h4>
 
 
   <a href="/profile/{{req.user._id}}"> </a>
 
-  <div class="container">
+  <div class="container profile-info-wrapper">
     <div class="row">
       <div class="col">
         <img src="{{user.imgPath}}" height="300" alt="" class="profile-image">
       </div>
-      <div class="col">
+
+      <div class="col user-info">
         <ul class="center">
           <li>
-            Name: {{user.username}}
+            Name: <span>{{user.username}}</span>
           </li>
-          <br>
+
           <li>
-            Location: {{user.location}}
+            Location: <span>{{user.location}}</span>
           </li>
-          <br>
+
           <li>
-            Birthtime: {{user.birthtime}}
+            Birthtime: <span>{{user.birthtime}}</span>
           </li>
-          <br>
+
           <li>
-            Birth month: {{user.birthmonth}}
+            Birth month: <span>{{user.birthmonth}}</span>
           </li>
-          <br>
+
           <li>
-            Birth day: {{user.birthday}}
+            Birth day: <span>{{user.birthday}}</span>
           </li>
-          <br>
+
           <li>
-            Birthplace: {{user.birthplace}}
+            Birthplace: <span>{{user.birthplace}}</span>
           </li>
-          <br>
+
           <li>
-            Zodiac: {{user.zodiac}}
+            Zodiac: <span>{{user.zodiac}}</span>
           </li>
         </ul>
       </div>
@@ -46,34 +48,45 @@
 </header>
 
 <br>
-<hr>
-<h3>Friends
-</h3>
-<div class="card-deck friends-deck">
-  {{#each listOfFriends}}
 
-  <a href="/{{this._id}}">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top img-thumbnail" src="{{this.imgPath}}" alt="Card image cap">
+<section class="friends-section">
+  <div class="friends-divider">
+    <h3>Friends</h3>
+  </div>
 
-      <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
-        <p class="card-text">
+  <div class="container">
+    <div class="card-deck friends-deck">
+      {{#each listOfFriends}}
 
-          <span>Zodiac Sign: {{this.zodiac}}</span><br>
-        </p>
-  </a>
-</div>
+      {{!-- <a href="/{{this._id}}"></a> --}}
+      <div class="card " style="width: 18rem;">
+        <img class="card-img-top img-thumbnail" src="{{this.imgPath}}" alt="Card image cap">
 
-<a href="/edit-friend/{{this._id}}">Edit</a>
-<a href="/{{this._id}}/delete">Delete</a>
-<a href="/compatibility/{{this._id}}" class="btn btn-primary">See compatibility</a><br>
+        <div class="card-body">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-text">
+            <span>Zodiac Sign: {{this.zodiac}}</span><br>
+          </p>
+          <a href="/compatibility/{{this._id}}" class="btn btn-primary">See compatibility</a><br>
+          <a href="/edit-friend/{{this._id}}">Edit</a>
+          <a href="/{{this._id}}/delete">Delete</a>
+        </div>
+      </div>
+      {{!-- </a> --}}
 
-</div>
 
-{{else}}
-<p>You have no friends yet!<br> Sadness!<br> <a href="/add-friend">Add a friend</a> or get a random celeb</p>
 
-{{/each}}
+      {{else}}
+      <p>You have no friends yet!<br> Sadness!<br> <a href="/add-friend">Add a friend</a> or get a random celeb</p>
 
-</div>
+      {{/each}}
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <small>AstroMatch 2018</small>
+  </div>
+</footer>
