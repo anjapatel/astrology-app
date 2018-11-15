@@ -24,6 +24,8 @@ body {
   // font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #051221;
   background-color: #fefefe;
+  height: 100%;
+
   
 }
 
@@ -113,11 +115,11 @@ nav a {
   font-size: 1.5em;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  
 }
 
-/*  Friends Deck home page ===================================== */
 
+
+/*  Friends Deck home page ===================================== */
 .friends-section {
   background-color: #a0c6db;
   background-image: linear-gradient(to top, #a0c6db, #fefefe) 
@@ -179,6 +181,24 @@ a {
   display: inline-block;
 }
 
+/* Profile page ================================================================ */
+.profile-page-header {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-body {
+  background-image: linear-gradient(to top, #a0c6db, #fefefe) 
+}
+
+.zodiac-infos-box {
+  max-width: 80%;
+}
+
+.edit-button {
+  display: flex;
+  margin-top: 20px;
+}
 
 /*  Login page animation =================================================================  */
 @keyframes move-twink-back {
@@ -293,6 +313,12 @@ a {
   animation: move-clouds-back 200s linear infinite;
 }
 
+/* Add friend form page ===================================================== */
+
+#add-friend-button {
+  margin-bottom: 428px;
+}
+
 /*  Footer =============================================== */
 footer {
   height: 100px;
@@ -301,7 +327,9 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #051221;
+ 
 }
+
 
 
 /* ============ Media */

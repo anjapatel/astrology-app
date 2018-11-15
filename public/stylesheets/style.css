@@ -6327,7 +6327,8 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #051221;
-  background-color: #fefefe; }
+  background-color: #fefefe;
+  height: 100%; }
 
 .header-homepage {
   margin-top: 40px; }
@@ -6450,6 +6451,21 @@ a {
 .inline-block {
   display: inline-block; }
 
+/* Profile page ================================================================ */
+.profile-page-header {
+  display: flex;
+  justify-content: center; }
+
+.profile-body {
+  background-image: linear-gradient(to top, #a0c6db, #fefefe); }
+
+.zodiac-infos-box {
+  max-width: 80%; }
+
+.edit-button {
+  display: flex;
+  margin-top: 20px; }
+
 /*  Login page animation =================================================================  */
 @keyframes move-twink-back {
   from {
@@ -6532,6 +6548,10 @@ a {
   -o-animation: move-clouds-back 200s linear infinite;
   -webkit-animation: move-clouds-back 200s linear infinite;
   animation: move-clouds-back 200s linear infinite; }
+
+/* Add friend form page ===================================================== */
+#add-friend-button {
+  margin-bottom: 428px; }
 
 /*  Footer =============================================== */
 footer {
