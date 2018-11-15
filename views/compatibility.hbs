@@ -6,52 +6,53 @@
     <div class="card" style="width: 18rem;">
       <a href="/profile/{{req.user._id}}">
         <img class="card-img-top img-thumbnail" src="{{user.imgPath}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title text-center">{{user.username}}</h5>
-          <p class="card-text text-center">
-            <span>{{user.zodiac}}</span><br>
-          </p>
       </a>
+      <div class="card-body">
+        <h5 class="card-title text-center">{{user.username}}</h5>
+        <p class="card-text text-center">
+          <span>{{user.zodiac}}</span><br>
+        </p>
+      </div>
+    </div>
+
+
+    <div class="card" style="width: 18rem;">
+      <a href="/{{friend._id}}">
+        <img class="card-img-top img-thumbnail" src="{{friend.imgPath}}" alt="Card image cap">
+      </a>
+
+      <div class="card-body">
+        <h5 class="card-title text-center">{{friend.name}}</h5>
+        <p class="card-text text-center">
+          {{!-- <span>{{friend.birthday}}</span><br>
+          <span>{{friend.birthtime}}</span><br>
+          <span>{{friend.birthplace}}</span><br>
+          <span>{{friend.location}}</span><br> --}}
+          <span>{{friend.zodiac}}</span><br>
+        </p>
+
+      </div>
     </div>
   </div>
 
-  <a href="/{{friend._id}}"></a>
+  <br>
+  <br>
 
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top img-thumbnail" src="{{friend.imgPath}}" alt="Card image cap">
+  <div class="card card-body compat-info">
+    <span class="compatability">
+      <h4><span class="zodiac-compat-h4">{{user.zodiac}}</span> & <span class="zodiac-compat-h4">{{friend.zodiac}}</span></h4>
 
-    <div class="card-body">
-      <h5 class="card-title text-center">{{friend.name}}</h5>
-      <p class="card-text text-center">
-        {{!-- <span>{{friend.birthday}}</span><br>
-        <span>{{friend.birthtime}}</span><br>
-        <span>{{friend.birthplace}}</span><br>
-        <span>{{friend.location}}</span><br> --}}
-        <span>{{friend.zodiac}}</span><br>
-      </p>
+      {{compatability}}
 
-    </div>
+      {{#ifEquals compatability 3}}
+      hello
+      {{else}}
+      {{/ifEquals}}
+    </span>
   </div>
-</div>
 
-<br>
-<br>
+  <div class="add-space">
 
-<div class="card card-body compat-info">
-  <span class="compatability">
-    <h4><span class="zodiac-compat-h4">{{user.zodiac}}</span> & <span class="zodiac-compat-h4">{{friend.zodiac}}</span></h4>
-
-    {{compatability}}
-
-    {{#ifEquals compatability 3}}
-    hello
-    {{else}}
-    {{/ifEquals}}
-  </span>
-</div>
-
-<div class="add-space">
-
-</div>
+  </div>
 
 </div>

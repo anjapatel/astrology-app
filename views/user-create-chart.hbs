@@ -1,4 +1,4 @@
-<h3>{{user.username}}'s profile</h3>
+<h3>Your profile</h3>
 
 <div class="mx-auto" style="width: 600px">
   <form action="/edit-profile/{{user._id}}" method="POST" enctype="multipart/form-data">
@@ -84,7 +84,11 @@
         <input type="file" class="custom-file-input" name="photo">
       </div>
     </div>
-    <button type="submit" class="btn-primary col" id="add-friend-button">Edit Profile</button>
+    <div class="edit-button container justify-content-left ml-0 pl-0 pr-0 edit-button-profile" width="100%">
+      <button type="submit" class="btn btn-primary edit-button-tag col">
+        Submit
+      </button>
+    </div>
 
     <br>
   </form>

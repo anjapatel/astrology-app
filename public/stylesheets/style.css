@@ -6416,9 +6416,6 @@ nav a {
   margin: 0;
   object-fit: cover; }
 
-a {
-  color: black; }
-
 .compatability {
   text-align: center; }
 
@@ -6476,14 +6473,31 @@ a {
   justify-content: center; }
 
 .profile-body {
-  background-image: linear-gradient(to top, #a0c6db, #fefefe); }
+  background-image: linear-gradient(to top, #a0c6db, #fefefe);
+  height: 84vh; }
 
 .zodiac-infos-box {
-  max-width: 80%; }
+  max-width: 80%;
+  padding: 20px; }
+
+.zodiac-infos-box-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px; }
 
 .edit-button {
   display: flex;
   margin-top: 20px; }
+
+.edit-button-tag a {
+  color: white;
+  text-decoration: none; }
+
+.zodiac-h3 {
+  padding: 0px; }
+
+.edit-button-profile {
+  margin-bottom: 400px; }
 
 /*  Login page animation =================================================================  */
 @keyframes move-twink-back {

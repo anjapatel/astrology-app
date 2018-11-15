@@ -36,7 +36,6 @@
             Birthplace: <span>{{user.birthplace}}</span>
           </li>
 
-
           <li>
             Zodiac: <span>{{user.zodiac}}</span>
           </li>
@@ -47,11 +46,11 @@
             {{else}}
             {{/ifEquals}}
           </li>
-
-          <li>
-            <button class="btn-primary col">Edit Profile</button>
-          </li>
-
+          <div class="edit-button container justify-content-left ml-0 pl-0">
+            <button type="button" class="btn btn-primary edit-button-tag col">
+              <a href="/edit-profile/{{user._id}}">Edit Profile</a>
+            </button>
+          </div>
 
         </ul>
 
@@ -67,11 +66,11 @@
 <section class="friends-section">
   <div class="friends-divider">
     <h3>Friends</h3>
+    <button class="btn-primary col">Add Friend</button>
   </div>
   <br>
 
   <div class="container">
-    <button class="btn-primary col">Add Friend</button>
     <div class="card-deck friends-deck">
       {{#each listOfFriends}}
 
