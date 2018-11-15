@@ -1,21 +1,21 @@
 <h3>Add a friend to see if you're compatible!</h3>
 
 
-<div class="container">
+<div class="mx-auto" style="width: 600px">
   <form action="/add-friend" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <div class="form-row">
-        <div class="col-md-6">
-          <label for="name">Friend's name</label>
+        <div class="col">
+          <label for="name">Name</label>
           <br>
-          <input id="name" type="text" class="form-control" name="name" placeholder="friend's name">
+          <input id="name" type="text" class="form-control" name="name" placeholder="Sir Hendrick">
         </div>
       </div>
       <div class="form-row">
 
         <br>
-        <div class="form-group col-md-3">
-          <label>Month</label>
+        <div class="form-group col-4">
+          <label>Birth Month</label>
           <select name="birthmonth" class="custom-select">
             <option value="1">January</option>
             <option value="2">February </option>
@@ -31,7 +31,7 @@
             <option value="12">December</option>
           </select>
         </div>
-        <div class="form-group col-md-1">
+        <div class="form-group col-md-4">
           <label>Day</label>
           <select name=" birthday" class="custom-select">
             <option value="1">1</option>
@@ -68,28 +68,28 @@
           </select>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-group col">
           <label>Time</label>
           <br>
           <input type="text" name="birthtime" class="form-control" placeholder="18:05">
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-3">
+        <div class="form-group col">
           <label>Place of birth</label>
           <input type="text" class="form-control" name="birthplace" placeholder="city, country">
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col">
           <label>Current location</label>
           <input type="text" class="form-control" name="location" placeholder="city, country">
         </div>
       </div>
-      <div class="custom-file col-md-6">
+      <div class="custom-file col">
         <label class="custom-file-label">Upload a profile photo</label>
         <input type="file" class="custom-file-input" name="photo">
       </div>
     </div>
-    <button type="submit" class="btn-primary">Add Friend</button>
+    <button type="submit" class="btn-primary col">Add Friend</button>
 
     <br>
   </form>

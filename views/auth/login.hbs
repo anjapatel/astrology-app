@@ -5,45 +5,53 @@
         <div class="twinkling">
           <div class="clouds">
 
-            <section class="login-form-wrapper">
-              <h2 class="">Login</h2>
+            <br>
+            <br>
+            <div class="mx-auto" style="width: 600px">
+              {{!-- <section class="login-form-wrapper"> --}}
 
-              <form action="/auth/login" method="POST" id="form-container">
-                <div class="form-group row inline-block">
-                  <label class="col-sm-4 col-form-label" for="username">Username</label>
-                  <div class="col-sm-8 inline-block"><input id="username" type="text" name="username" placeholder="username"
-                      class="form-control">
+                <form action="/auth/login" class="compatability" method="POST" id="form-container">
+                  <h1>Welcome to Astromatch</h1>
+                  <h5>Astromatch is a zodiac compatability site for you and your friends.</h5>
+                  <br>
+                  <h5>Log in to continue.</h5>
+                  <div class="form-group row inline-block">
+                    <label class="col col-form-label" for="username">Username</label>
+                    <div class="col inline-block"><input id="username" type="text" name="username" placeholder="username"
+                        class="form-control">
+                    </div>
                   </div>
-                </div>
 
-                <div class="form-group row inline-block">
-                  <label class=" col-sm-4 col-form-label" for="password">Password</label>
-                  <div class="col-sm-8 inline-block"><input id="password" type="password" name="password" placeholder="password"
-                      class="form-control">
+                  <div class="form-group row inline-block">
+                    <label class=" col-sm-4 col-form-label" for="password">Password</label>
+                    <div class="col inline-block"><input id="password" type="password" name="password" placeholder="password"
+                        class="form-control">
+                    </div>
                   </div>
-                </div>
-                <br>
-                {{#if message }}
-                <div class="error-message">{{ message }}</div>
-                {{/if}}
+                  <br>
+                  {{#if message }}
+                  <div class="error-message">{{ message }}</div>
+                  {{/if}}
 
-                <div class="form-group row">
+                  <div class="form-group row">
 
-                  <div class="col-sm-8 offset-sm-4">
-                    <button class="btn btn-primary">Login</button>
+                    <div class="col">
+                      <button class="btn btn-primary col">Login</button>
+                    </div>
                   </div>
-                </div>
-                <p class="account-message">
-                  Don't have an account yet?
-                  <a href="/auth/signup">Signup</a>
-                </p>
-              </form>
-            </section>
+                  <p class="account-message">
+                    Don't have an account yet?
+                    <a href="/auth/signup">Signup</a>
+                  </p>
+                </form>
+                {{!--
+              </section> --}}
 
+            </div>
           </div>
         </div>
-
       </div>
-      {{!-- </div> {{!-- ======> col-sm --}}
+      {{!--
+    </div> {{!-- ======> col-sm --}}
   </div> ======> row --}}
 </section>
