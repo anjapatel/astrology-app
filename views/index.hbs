@@ -41,12 +41,6 @@
             Zodiac: <span>{{user.zodiac}}</span>
           </li>
 
-          <li>
-            {{#ifEquals user.zodiac "Leo"}}
-            Capricorn
-            {{else}}
-            {{/ifEquals}}
-          </li>
 
           <li>
             <button class="btn-primary col">Edit Profile</button>
@@ -83,8 +77,10 @@
         <div class="card-body">
           <h5 class="card-title">{{this.name}}</h5>
           <p class="card-text">
-            <span>Zodiac Sign: {{this.zodiac}}</span><br>
-          </p>
+            <span>{{this.zodiac}}</span><br>
+          </p>Compatability Score:
+          {{this.compatability}}
+          <br>
           <a href="/compatibility/{{this._id}}" class="btn btn-primary">See compatibility</a><br>
           <a href="/edit-friend/{{this._id}}">Edit</a>
           <a href="/{{this._id}}/delete">Delete</a>

@@ -16,12 +16,19 @@ function ensureAuthenticated(req, res, next) {
 
 /* GET home page */
 router.get("/", ensureAuthenticated, (req, res) => {
-  console.log("Rendering list of friends");
+  const userZodiac = req.user.zodiac;
+
   Friend.find()
     .then(friendsFromDb => {
+      for (let i = 0; i < friendsFromDb.length; i++) {
+        const friendZodiac = friendsFromDb[i].zodiac;
+        compatability = calculateCompatability(friendZodiac, userZodiac);
+        friendsFromDb[i].compatability = compatability;
+      }
       res.render("index", {
         listOfFriends: friendsFromDb,
-        user: req.user
+        user: req.user,
+        compatability
       });
     })
     .catch(error => {
@@ -85,7 +92,6 @@ router.get("/compatibility/:id", (req, res, next) => {
   Friend.findById(req.params.id).then(friend => {
     const friendZodiac = friend.zodiac;
     const compatability = calculateCompatability(friendZodiac, userZodiac);
-    console.log("this is the compatability score " + compatability);
     res.render("compatibility", {
       user: req.user,
       friend,
