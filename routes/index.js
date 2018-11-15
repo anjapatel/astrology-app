@@ -58,8 +58,7 @@ router.post(
           birthplace,
           imgPath,
           imgName,
-          zodiac: createZodiac({ birthmonth, birthday }),
-          description: createDescription({ birthmonth, birthday })
+          zodiac: createZodiac({ birthmonth, birthday })
         }
       },
       { new: true }
