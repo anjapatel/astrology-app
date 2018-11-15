@@ -1,42 +1,129 @@
-$primary: purple;
+$primary: #cb482f;
 
+/*  ==== colors ============== 
+darkblue: #051221;
+white: #fefefe;
+lightblue: #a0c6db;
+red: #cb482f;
+ */
+
+// background-image: linear-gradient(to top, #fefefe, #051221) 
 /* 992 breakpoint */
 
 //import SCSS of boostrap
 @import "node_modules/bootstrap/scss/bootstrap";
 
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   // font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: black;
+  color: #051221;
   background-color: #fefefe;
+  
 }
 
 .header-homepage {
-  
+  margin-top: 40px;
+ 
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  font-family: 'Concert One', cursive;
+}
+
+h3 {
+  font-size: 2em;
+  font-family: 'Concert One', cursive;
+  font-weight: 300;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.friends-divider {
+  height: 100px;
+  background-color: #051221;
+  color: #fefefe;
+
+}
+
+h4 {
+  font-size: 1.3em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: center;
 }
 
 ul {
   list-style-type: none;
 }
 
-nav a {
-  font-family: 'Concert One', cursive;
- 
+nav {
+  background-image: linear-gradient(to top, #fefefe, #a0c6db);
+  // background-image: linear-gradient(to top, #fefefe, #a0c6db);
 }
 
+nav a {
+  font-family: 'Concert One', cursive;
+  font-size: 1.2em;
+}
+
+
+.navbar-brand {
+  font-size: 2em;
+}
+
+.profile-info-wrapper {
+  margin: 40px 50px 50px 0px;
+  display: flex;
+  justify-content: center;
+}
 
 
 .profile-image {
   display: block;
-  // max-height: 25%;
-  // max-width: auto;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
-  margin: 0;
+  margin-right: 30px;
   object-fit: cover;
   border: 0.5px solid black;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.user-info li {
+  font-size: 1em;
+  font-family: 'Concert One', cursive;
+  font-weight: 300;
+}
+
+.user-info li span {
+  font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  
+}
+
+/*  Friends Deck home page ===================================== */
+
+.friends-section {
+  background-color: #a0c6db;
+  background-image: linear-gradient(to top, #a0c6db, #fefefe) 
+}
+.friends-deck {
+  padding-bottom: 70px;
 }
 
 .friends-deck .img-thumbnail {
@@ -51,13 +138,28 @@ a {
   color: black;
 }
 
-h3 {
+
+.compatability {
   text-align: center;
 }
 
-.compatability {
-  color: purple;
+.card {
+  display: flex;
+  align-items: center;
   text-align: center;
+  padding: 20px;
+  background-color: #0512212d;
+  border: none;
+  min-width: 300px;
+  flex-grow: 0!important;
+  margin: auto!important;
+  margin-top: 30px!important;
+}
+
+.card-title {
+  font-size: 1.5em;
+  font-family: 'Concert One', cursive;
+  font-weight: 300;
 }
 
 /* Login page ===================================================== */
@@ -191,3 +293,15 @@ h3 {
   animation: move-clouds-back 200s linear infinite;
 }
 
+/*  Footer =============================================== */
+footer {
+  height: 100px;
+  color: #fefefe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #051221;
+}
+
+
+/* ============ Media */
