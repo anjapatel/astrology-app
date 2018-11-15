@@ -6,12 +6,13 @@
     <div class="card" style="width: 18rem;">
       <a href="/profile/{{req.user._id}}">
         <img class="card-img-top img-thumbnail" src="{{user.imgPath}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title text-center">{{user.username}}</h5>
-          <p class="card-text text-center">
-            <span>{{user.zodiac}}</span><br>
-          </p>
       </a>
+      <div class="card-body">
+        <h5 class="card-title text-center">{{user.username}}</h5>
+        <p class="card-text text-center">
+          <span>{{user.zodiac}}</span><br>
+        </p>
+      </div>
     </div>
   </div>
 
@@ -49,8 +50,11 @@
 
   <a href="/{{friend._id}}"></a>
 
+
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top img-thumbnail" src="{{friend.imgPath}}" alt="Card image cap">
+    <a href="/{{friend._id}}">
+      <img class="card-img-top img-thumbnail" src="{{friend.imgPath}}" alt="Card image cap">
+    </a>
 
     <div class="card-body">
       <h5 class="card-title text-center">{{friend.name}}</h5>

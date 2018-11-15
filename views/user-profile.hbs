@@ -1,5 +1,5 @@
 <div class="profile-body">
-  <h3>{{user.username}}</h3>
+  <h3>Your birthchart</h3>
 
   <div class="container profile-page-header user-info ">
     <div class="d-inline-flex p-2 justify-content-center align-items-center bd-highlight">
@@ -24,7 +24,7 @@
           Zodiac: <span>{{user.zodiac}}</span>
         </li>
         <div class="edit-button container justify-content-left ml-0 pl-0">
-          <button type="button" class="btn btn-primary">
+          <button type="button" class="btn btn-primary edit-button-tag">
             <a href="/edit-profile/{{user._id}}">Edit Profile</a>
           </button>
         </div>
@@ -34,10 +34,10 @@
 
 
 
-  <div class="container">
+  <div class="container zodiac-infos-box-wrapper">
     <div class="card card-body zodiac-infos-box">
 
-      <h3> {{user.zodiac}} </h3>
+      <h3 class="zodiac-h3"> {{user.zodiac}} </h3>
 
 
       {{!-- The Zodiac Conditionals --}}
