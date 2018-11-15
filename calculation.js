@@ -354,8 +354,9 @@ module.exports = {
         break;
     }
 
-    console.log("these are the ppoints " + points);
-    return returnScore(points);
+    // console.log("these are the ppoints " + points);
+    return points;
+    // return returnScore(points);
   }
 };
 

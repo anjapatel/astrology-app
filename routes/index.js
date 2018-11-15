@@ -27,7 +27,6 @@ router.get("/", ensureAuthenticated, (req, res) => {
     .catch(error => {
       console.log(error);
     });
-  /* res.render("index", { user: req.user }); */
 });
 
 /* Get User profile ======================================================== */

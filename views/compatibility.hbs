@@ -26,10 +26,6 @@
   <div class="card-body">
     <h5 class="card-title text-center">{{friend.name}}</h5>
     <p class="card-text text-center">
-      {{!-- <span>{{friend.birthday}}</span><br>
-      <span>{{friend.birthtime}}</span><br>
-      <span>{{friend.birthplace}}</span><br>
-      <span>{{friend.location}}</span><br> --}}
       <span>{{friend.zodiac}}</span><br>
     </p>
 
@@ -43,7 +39,12 @@
 <div class="card card-body">
   <span class="compatability">
     <h4>{{user.zodiac}} & {{friend.zodiac}}</h4>
-
     {{compatability}}
+
+    {{#ifEquals compatability 3}}
+    hello
+    {{else}}
+    {{/ifEquals}}
+
   </span>
 </div>

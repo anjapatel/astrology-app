@@ -19,10 +19,6 @@
           </li>
 
           <li>
-            Location: <span>{{user.location}}</span>
-          </li>
-
-          <li>
             Birthtime: <span>{{user.birthtime}}</span>
           </li>
 
@@ -38,13 +34,30 @@
             Birthplace: <span>{{user.birthplace}}</span>
           </li>
 
+
           <li>
             Zodiac: <span>{{user.zodiac}}</span>
           </li>
+
+          <li>
+            {{#ifEquals user.zodiac "Leo"}}
+            Capricorn
+            {{else}}
+            {{/ifEquals}}
+          </li>
+
+          <li>
+            <button class="btn-primary col">Edit Profile</button>
+          </li>
+
+
         </ul>
+
       </div>
+
     </div>
   </div>
+
 </header>
 
 <br>
@@ -53,8 +66,10 @@
   <div class="friends-divider">
     <h3>Friends</h3>
   </div>
+  <br>
 
   <div class="container">
+    <button class="btn-primary col">Add Friend</button>
     <div class="card-deck friends-deck">
       {{#each listOfFriends}}
 

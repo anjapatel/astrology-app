@@ -1,38 +1,91 @@
-hi! tell us about yourself and add your birth info to get started
+<h3>{{user.username}}'s profile</h3>
 
-<br>
-<br>
+<div class="mx-auto" style="width: 600px">
+  <form action="/edit-profile/{{user._id}}" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col">
+          <label for="name">Name</label>
+          <br>
+          <input id="name" type="text" class="form-control" name="name" placeholder="Sir Hendrick" value="{{user.username}}">
+        </div>
+      </div>
+      <div class="form-row">
 
-<form action="/edit-profile/{{user._id}}" method="POST" enctype="multipart/form-data">
+        <br>
+        <div class="form-group col-4">
+          <label>Birth Month</label>
+          <select name="birthmonth" class="custom-select">
+            <option value="1">January</option>
+            <option value="2">February </option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Day</label>
+          <select name="birthday" class="custom-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+          </select>
+        </div>
 
-  <label for="">Current city</label>
-  <input type="text" name="location" value="{{user.location}}">
+        <div class="form-group col">
+          <label>Time</label>
+          <br>
+          <input type="text" name="birthtime" class="form-control" placeholder="18:05" value="{{user.birthtime}}">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Place of birth</label>
+          <input type="text" class="form-control" name="birthplace" placeholder="city, country" value="{{user.birthplace}}">
+        </div>
+      </div>
+      <div class="custom-file col">
+        <label class="custom-file-label">Upload a profile photo</label>
+        <input type="file" class="custom-file-input" name="photo">
+      </div>
+    </div>
+    <button type="submit" class="btn-primary col" id="add-friend-button">Edit Profile</button>
 
-  <br>
-
-  <label for="birthmonth">Birth month</label>
-  <input type="text" name="birthmonth" value="{{user.birthmonth}}">
-
-  <br>
-
-  <label for="birthday">Birth date</label>
-  <input type="text" name="birthday" value="{{user.birthday}}">
-
-  <br>
-
-  <label for="birthtime">Birth time</label>
-  <input type="text" name="birthtime" value="{{user.birthtime}}">
-
-  <br>
-
-  <label for="birthplace">Birth place</label>
-  <input type="text" name="birthplace" value="{{user.birthplace}}">
-
-  <br>
-
-  <label for="photo">Profile Pic</label>
-  <input type="file" name="photo">
-
-  <button type="submit">Submit</button>
-
-</form>
+    <br>
+  </form>
+</div>
