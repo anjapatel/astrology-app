@@ -6314,10 +6314,26 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: black; }
+  color: black;
+  background-color: #fff8ef; }
+
+ul {
+  list-style-type: none; }
+
+.profile-image {
+  display: block;
+  max-height: 25%;
+  max-width: auto; }
 
 a {
   color: black; }
+
+h3 {
+  text-align: center; }
+
+.compatability {
+  color: purple;
+  text-align: center; }
 
 /* Login page ===================================================== */
 .login-wrapper {
@@ -6381,7 +6397,9 @@ a {
   to {
     background-position: 10000px 0; } }
 
-.stars, .twinkling, .clouds {
+.stars,
+.twinkling,
+.clouds {
   position: absolute;
   top: 0;
   left: 0;

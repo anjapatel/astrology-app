@@ -1,32 +1,43 @@
-hi you're on the user profile page!
-
-
-
+<h3>{{user.username}}
+</h3>
 <br>
 <br>
 
-<img src="{{user.imgPath}}" alt="">
-Name: {{user.username}}
-<br>
-<br>
-Location: {{user.location}}
-<br>
-<br>
-Birthtime: {{user.birthtime}}
-<br>
-<br>
-Birth month: {{user.birthmonth}}
-<br>
-<br>
-Birth day: {{user.birthday}}
-<br>
-<br>
-Birthplace: {{user.birthplace}}
-<br>
-<br>
-Zodiac: {{user.zodiac}}
-<br>
-<br>
+
+<div class="d-inline-flex p-2 justify-content-center bd-highlight">
+  <img src="{{user.imgPath}}" height="300" alt="" class="profile-image">
+  <ul class="center">
+    <li>
+      Location: {{user.location}}
+    </li>
+    <br>
+    <br>
+    <li>
+      Birthtime: {{user.birthtime}}
+    </li>
+    <br>
+    <br>
+    <li>
+      Birth month: {{user.birthmonth}}
+    </li>
+    <br>
+    <br>
+    <li>
+      Birth day: {{user.birthday}}</li>
+    <br>
+    <br>
+    <li>
+      Birthplace: {{user.birthplace}}
+    </li>
+    <br>
+    <br>
+    <li>
+      Zodiac: {{user.zodiac}}
+    </li>
+    <br>
+    <br>
+  </ul>
+</div>
 
 
 <a href="/edit-profile/{{user._id}}">Edit</a>

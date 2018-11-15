@@ -1,37 +1,59 @@
+<h3>Hi {{user.username}}! See how compatible you are with your pals.</h3>
+
+
+<a href="/profile/{{req.user._id}}"> </a>
+
 <section>
-  <a href="/profile/{{req.user._id}}">
-
-    <img src="{{user.imgPath}}" alt="">
-    Name: {{user.username}}
-
-    Location: {{user.location}}
-
-    Birthtime: {{user.birthtime}}
-
-    Birth month: {{user.birthmonth}}
-
-    Birth day: {{user.birthday}}
-
-    Birthplace: {{user.birthplace}}
-
-    Zodiac: {{user.zodiac}}
-  </a>
+  <div class="d-inline-flex p-2 justify-content-center bd-highlight">
+    <img src="{{user.imgPath}}" height="300" alt="" class="profile-image">
+    <ul class="center">
+      <li>
+        Name: {{user.username}}
+      </li>
+      <br>
+      <li>
+        Location: {{user.location}}
+      </li>
+      <br>
+      <li>
+        Birthtime: {{user.birthtime}}
+      </li>
+      <br>
+      <li>
+        Birth month: {{user.birthmonth}}
+      </li>
+      <br>
+      <li>
+        Birth day: {{user.birthday}}
+      </li>
+      <br>
+      <li>
+        Birthplace: {{user.birthplace}}
+      </li>
+      <br>
+      <li>
+        Zodiac: {{user.zodiac}}
+      </li>
+    </ul>
+  </div>
 </section>
 
-<h1>here are all your friends
-</h1>
+<br>
+<hr>
+<h3>Friends
+</h3>
 <div class="card-deck">
   {{#each listOfFriends}}
 
   <a href="/{{this._id}}">
     <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="{{this.imgPath}}" alt="Card image cap">
+      <img class="card-img-top img-thumbnail" src="{{this.imgPath}}" alt="Card image cap">
 
       <div class="card-body">
         <h5 class="card-title">{{this.name}}</h5>
         <p class="card-text">
 
-          <span>zodiac !{{this.zodiac}}</span><br>
+          <span>Zodiac Sign: {{this.zodiac}}</span><br>
         </p>
   </a>
 </div>

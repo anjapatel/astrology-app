@@ -368,29 +368,29 @@ module.exports = {
 };
 
 function returnScore(points) {
-  if ((points = 1)) {
+  if (points === 1) {
     return "You're basically mortal enemies. Please avoid each other at all costs.";
-  } else if ((points = 2)) {
+  } else if (points === 2) {
     return "Ehhhhhhhhhhh proceed with caution. You probably don't get along TOO well.";
-  } else if ((points = 3)) {
+  } else if (points === 3) {
     return "So. Your friendship will probably seem promising at first, but will likely go down in flames. Best of luck.";
-  } else if ((points = 4)) {
-    return "Your relationship will be tepid at best. Lukewarm conversations? Hell yes.";
-  } else if ((points = 5)) {
+  } else if (points === 4) {
+    return "Your relationship will be tepid at best. Lukewarm conversations?  Hell yes.";
+  } else if (points === 5) {
+    return "You are kiiiiiind of compatible, but not really.";
+  } else if (points === 6) {
+    return "You're medium compatible! Not great, but! Ok!";
+  } else if (points === 7) {
+    return "Wowsers trousers man, y'all are doin great";
+  } else if (points === 8) {
+    return "You're pretty compatible, tbh.";
+  } else if (points === 9) {
     return "Wow you're super compatable!";
-  } else if ((points = 6)) {
-    return "Wow you're super compatable!";
-  } else if ((points = 7)) {
-    return "Wow you're super compatable!";
-  } else if ((points = 8)) {
-    return "Wow you're super compatable!";
-  } else if ((points = 9)) {
-    return "Wow you're super compatable!";
-  } else if ((points = 10)) {
-    return "Wow you're super compatable!";
-  } else if ((points = 11)) {
-    return "Wow you're super compatable!";
-  } else if ((points = 12)) {
-    return "Wow you're super compatable!";
+  } else if (points === 10) {
+    return "Wowowowowow nice nice nice please get married now";
+  } else if (points === 11) {
+    return "Damn. Pretty good.";
+  } else if (points === 12) {
+    return "Holy shit, are you married? Because you should be. ";
   }
 }

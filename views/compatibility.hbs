@@ -1,42 +1,50 @@
-<h1>Compatibility</h1>
-<div>
-  this is compatability score: {{compatability}}</div>
+<br>
+<br>
+<h3>Your compatibility with <a href="/{{friend._id}}">{{friend.name}}</a></h3>
+
 
 <br>
 
-<a href="/profile/{{req.user._id}}">
+<div class="card-deck">
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{user.imgPath}}" alt="Card image cap">
+    <a href="/profile/{{req.user._id}}">
+      <img class="card-img-top img-thumbnail" src="{{user.imgPath}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{user.username}}</h5>
+        <p class="card-text text-center">
+          {{!-- <span>{{user.birthday}}</span><br>
+          <span>{{user.birthtime}}</span><br>
+          <span>{{user.birthplace}}</span><br>
+          <span>{{user.location}}</span><br> --}}
+          <span>{{user.zodiac}}</span><br>
+        </p>
+    </a>
+  </div>
+</div>
 
-    <div class="card-body">
-      <h5 class="card-title">{{user.name}}</h5>
-      <p class="card-text">
-        <span>{{user.birthday}}</span><br>
-        <span>{{user.birthtime}}</span><br>
-        <span>{{user.birthplace}}</span><br>
-        <span>{{user.location}}</span><br>
-        <span>{{user.zodiac}}</span><br>
-      </p>
-</a>
+<a href="/{{friend._id}}"></a>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top img-thumbnail" src="{{friend.imgPath}}" alt="Card image cap">
+
+  <div class="card-body">
+    <h5 class="card-title text-center">{{friend.name}}</h5>
+    <p class="card-text text-center">
+      {{!-- <span>{{friend.birthday}}</span><br>
+      <span>{{friend.birthtime}}</span><br>
+      <span>{{friend.birthplace}}</span><br>
+      <span>{{friend.location}}</span><br> --}}
+      <span>{{friend.zodiac}}</span><br>
+    </p>
+
+  </div>
 </div>
 </div>
 
 <br>
+<br>
 
-
-<a href="/{{friend._id}}">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{friend.imgPath}}" alt="Card image cap">
-
-    <div class="card-body">
-      <h5 class="card-title">{{friend.name}}</h5>
-      <p class="card-text">
-        <span>{{friend.birthday}}</span><br>
-        <span>{{friend.birthtime}}</span><br>
-        <span>{{friend.birthplace}}</span><br>
-        <span>{{friend.location}}</span><br>
-        <span>{{friend.zodiac}}</span><br>
-      </p>
-</a>
+<div class="card card-body">
+  <span class="compatability">A {{user.zodiac}} and a {{friend.zodiac}}, eh?
+    {{compatability}}</span>
 </div>
-<div>
