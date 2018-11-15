@@ -4,6 +4,7 @@ const Friend = require("../models/Friend");
 const uploadCloud = require("../config/cloudinary");
 const createZodiac = require("../utils").createZodiac;
 const calculateCompatability = require("../calculation").calculateCompatability;
+const createDescription = require("../description").createDescription;
 const router = express.Router();
 
 function ensureAuthenticated(req, res, next) {
@@ -46,10 +47,6 @@ router.post(
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
     const { location, birthday, birthmonth, birthtime, birthplace } = req.body;
-    // if (req.file && imgPath) {
-    //   update.imgPath = req.file.url;
-    // }
-    console.log("_____________________________", req.file);
     User.updateOne(
       { _id: req.user._id },
       {
@@ -61,14 +58,14 @@ router.post(
           birthplace,
           imgPath,
           imgName,
-          zodiac: createZodiac({ birthmonth, birthday })
+          zodiac: createZodiac({ birthmonth, birthday }),
+          description: createDescription({ birthmonth, birthday })
         }
       },
       { new: true }
     )
       .then(user => {
         res.redirect("/profile");
-        console.log("profile updated");
       })
 
       .catch(err => {
@@ -91,10 +88,6 @@ router.get("/compatibility/:id", (req, res, next) => {
   Friend.findById(req.params.id).then(friend => {
     const friendZodiac = friend.zodiac;
     const compatability = calculateCompatability(friendZodiac, userZodiac);
-    // console.log(
-    //   "this is the compatability " +
-    //     calculateCompatability(friendZodiac, userZodiac)
-    // );
     console.log("this is the compatability score " + compatability);
     res.render("compatibility", {
       user: req.user,
