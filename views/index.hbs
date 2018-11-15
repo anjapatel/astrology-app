@@ -1,48 +1,55 @@
-<h3>Hi {{user.username}}! See how compatible you are with your pals.</h3>
+<header class="header-homepage">
+
+  <h3>Hi {{user.username}}! See how compatible you are with your pals.</h3>
 
 
-<a href="/profile/{{req.user._id}}"> </a>
+  <a href="/profile/{{req.user._id}}"> </a>
 
-<section>
-  <div class="d-inline-flex p-2 justify-content-center bd-highlight">
-    <img src="{{user.imgPath}}" height="300" alt="" class="profile-image">
-    <ul class="center">
-      <li>
-        Name: {{user.username}}
-      </li>
-      <br>
-      <li>
-        Location: {{user.location}}
-      </li>
-      <br>
-      <li>
-        Birthtime: {{user.birthtime}}
-      </li>
-      <br>
-      <li>
-        Birth month: {{user.birthmonth}}
-      </li>
-      <br>
-      <li>
-        Birth day: {{user.birthday}}
-      </li>
-      <br>
-      <li>
-        Birthplace: {{user.birthplace}}
-      </li>
-      <br>
-      <li>
-        Zodiac: {{user.zodiac}}
-      </li>
-    </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img src="{{user.imgPath}}" height="300" alt="" class="profile-image">
+      </div>
+      <div class="col">
+        <ul class="center">
+          <li>
+            Name: {{user.username}}
+          </li>
+          <br>
+          <li>
+            Location: {{user.location}}
+          </li>
+          <br>
+          <li>
+            Birthtime: {{user.birthtime}}
+          </li>
+          <br>
+          <li>
+            Birth month: {{user.birthmonth}}
+          </li>
+          <br>
+          <li>
+            Birth day: {{user.birthday}}
+          </li>
+          <br>
+          <li>
+            Birthplace: {{user.birthplace}}
+          </li>
+          <br>
+          <li>
+            Zodiac: {{user.zodiac}}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-</section>
+</header>
 
 <br>
 <hr>
 <h3>Friends
 </h3>
-<div class="card-deck">
+<div class="card-deck friends-deck">
   {{#each listOfFriends}}
 
   <a href="/{{this._id}}">
