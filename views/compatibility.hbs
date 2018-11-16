@@ -12,6 +12,77 @@
               </a>
               <div class="card-body">
                 <h5 class="card-title text-center">{{user.username}}</h5>
+
+                <div>
+                  {{#ifEquals user.zodiac "Capricorn"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358151/capricorn-sign.png" height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Virgo"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358255/virgo-astrological-symbol-sign-1.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Taurus"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358244/taurus-astrological-sign-symbol-1.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Scorpio"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358234/scorpion-astrological-sign.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Sagittarius"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358222/sagittarius-arrow-sign.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Pisces"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358212/pisces-astrological-sign.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Libra"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358200/libra-sign.png" height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Leo"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358183/leo-sign.png" height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Gemini"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358170/gemini-zodiac-sign-symbol.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Cancer"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358125/cancer-zodiac-sign-symbol.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Aries"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358095/aries-sign.png" height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals user.zodiac "Aquarius"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542357911/aquarius-zodiac-sign-symbol.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                </div>
                 <p class="card-text text-center">
                   <span>{{user.zodiac}}</span><br>
                 </p>
@@ -31,7 +102,6 @@
             <i class="fas fa-exclamation-triangle fa-8x"></i>
             {{else}}
             {{/ifEquals}}
-
 
             {{#ifEquals compatability 3}}
             <i class="fas fa-thumbs-up fa-8x"></i>
@@ -65,6 +135,77 @@
               </a>
               <div class="card-body">
                 <h5 class="card-title text-center">{{friend.name}}</h5>
+
+                <div>
+                  {{#ifEquals friend.zodiac "Capricorn"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358151/capricorn-sign.png" height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Virgo"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358255/virgo-astrological-symbol-sign-1.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Taurus"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358244/taurus-astrological-sign-symbol-1.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Scorpio"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358234/scorpion-astrological-sign.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Sagittarius"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358222/sagittarius-arrow-sign.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Pisces"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358212/pisces-astrological-sign.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Libra"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358200/libra-sign.png" height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Leo"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358183/leo-sign.png" height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Gemini"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358170/gemini-zodiac-sign-symbol.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Cancer"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358125/cancer-zodiac-sign-symbol.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Aries"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358095/aries-sign.png" height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                  {{#ifEquals friend.zodiac "Aquarius"}}
+                  <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542357911/aquarius-zodiac-sign-symbol.png"
+                    height="50">
+                  {{else}}
+                  {{/ifEquals}}
+
+                </div>
                 <p class="card-text text-center">
                   <span>{{friend.zodiac}}</span><br>
                 </p>
@@ -101,7 +242,10 @@
           {{/ifEquals}}
 
           {{#ifEquals compatability 3}}
-          This is a solid match
+          This is a solid match. You have a natural, easy chemistry and will find each other to be dependable and
+          reliable. However, you might lack common interests and passions. Though acquaintanceship will come easily,
+          the chance for your friendship or relationship to fade is likely unless you're willing to put in the effort
+          to maintain it.
           {{else}}
           {{/ifEquals}}
 
