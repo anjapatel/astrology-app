@@ -360,15 +360,15 @@ module.exports = {
 };
 
 function returnScore(points) {
-  if (points <= 3) {
+  if (points < 3) {
     return 1;
-  } else if (points > 3 && points <= 6) {
+  } else if (points >= 3 && points <= 5) {
     return 2;
-  } else if (points > 6 && points <= 9) {
+  } else if (points > 5 && points <= 7) {
     return 3;
-  } else if (points > 9 && points <= 12) {
+  } else if (points > 7 && points <= 9) {
     return 4;
-  } else if (points === 12) {
+  } else if (points > 10) {
     return 5;
   }
 }

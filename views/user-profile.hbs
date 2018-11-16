@@ -5,24 +5,91 @@
     <div class="d-inline-flex p-2 justify-content-center align-items-center bd-highlight">
       <img src="{{user.imgPath}}" height="300" alt="" class="profile-image">
       <ul class="center">
-        <li>
-          Location: <span>{{user.location}}</span>
-        </li>
 
         <li>
-          Birthtime: <span>{{user.birthtime}}</span>
-        </li>
 
-        <li>
-          Birthday: <span>{{user.birthday}} / {{user.birthmonth}}</span></li>
+          {{#ifEquals user.zodiac "Capricorn"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358151/capricorn-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
 
-        <li>
-          Birthplace: <span>{{user.birthplace}}</span>
+          {{#ifEquals user.zodiac "Virgo"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358255/virgo-astrological-symbol-sign-1.png"
+            height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Taurus"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358244/taurus-astrological-sign-symbol-1.png"
+            height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Scorpio"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358234/scorpion-astrological-sign.png"
+            height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Sagittarius"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358222/sagittarius-arrow-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Pisces"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358212/pisces-astrological-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Libra"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358200/libra-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Leo"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358183/leo-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Gemini"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358170/gemini-zodiac-sign-symbol.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Cancer"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358125/cancer-zodiac-sign-symbol.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Aries"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358095/aries-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals user.zodiac "Aquarius"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542357911/aquarius-zodiac-sign-symbol.png"
+            height="50">
+          {{else}}
+          {{/ifEquals}}
+
         </li>
 
         <li>
           Zodiac: <span>{{user.zodiac}}</span>
         </li>
+        <li>
+          Birthday: <span>{{user.birthday}} / {{user.birthmonth}}</span></li>
+
+        <li>
+          Birthtime: <span>{{user.birthtime}}</span>
+        </li>
+
+
+        <li>
+          Birthplace: <span>{{user.birthplace}}</span>
+        </li>
+
+
         <div class="edit-button container justify-content-left ml-0 pl-0">
           <button type="button" class="btn btn-primary edit-button-tag">
             <a href="/edit-profile/{{user._id}}">Edit Profile</a>
