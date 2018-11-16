@@ -51,11 +51,19 @@ router.post(
   (req, res, next) => {
     const imgPath = req.file.url;
     const imgName = req.file.originalname;
-    const { location, birthday, birthmonth, birthtime, birthplace } = req.body;
+    const {
+      username,
+      location,
+      birthday,
+      birthmonth,
+      birthtime,
+      birthplace
+    } = req.body;
     User.updateOne(
       { _id: req.user._id },
       {
         $set: {
+          username,
           location,
           birthday,
           birthmonth,

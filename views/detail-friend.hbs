@@ -5,24 +5,91 @@
     <div class="d-inline-flex p-2 justify-content-center align-items-center bd-highlight">
       <img src="{{friend.imgPath}}" height="300" alt="" class="profile-image">
       <ul class="center">
+
         <li>
-          Location: <span>{{friend.location}}</span>
+
+          {{#ifEquals friend.zodiac "Capricorn"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358151/capricorn-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Virgo"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358255/virgo-astrological-symbol-sign-1.png"
+            height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Taurus"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358244/taurus-astrological-sign-symbol-1.png"
+            height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Scorpio"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358234/scorpion-astrological-sign.png"
+            height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Sagittarius"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358222/sagittarius-arrow-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Pisces"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358212/pisces-astrological-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Libra"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358200/libra-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Leo"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358183/leo-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Gemini"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358170/gemini-zodiac-sign-symbol.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Cancer"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358125/cancer-zodiac-sign-symbol.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Aries"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358095/aries-sign.png" height="50">
+          {{else}}
+          {{/ifEquals}}
+
+          {{#ifEquals friend.zodiac "Aquarius"}}
+          <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542357911/aquarius-zodiac-sign-symbol.png"
+            height="50">
+          {{else}}
+          {{/ifEquals}}
+
         </li>
 
         <li>
-          Birthtime: <span>{{friend.birthtime}}</span>
+          Zodiac: <span>{{friend.zodiac}}</span>
         </li>
 
         <li>
           Birthday: <span>{{friend.birthday}} / {{friend.birthmonth}}</span></li>
 
         <li>
-          Birthplace: <span>{{friend.birthplace}}</span>
+          Birthtime: <span>{{friend.birthtime}}</span>
         </li>
 
         <li>
-          Zodiac: <span>{{friend.zodiac}}</span>
+          Birthplace: <span>{{friend.birthplace}}</span>
         </li>
+
+
         <div class="edit-button container justify-content-left ml-0 pl-0">
           <button type="button" class="btn btn-primary edit-button-tag">
             <a href="/edit-friend/{{friend._id}}">Edit Profile</a>
