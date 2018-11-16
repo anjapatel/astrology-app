@@ -108,18 +108,22 @@
 </div>
 
 <section class="friends-section">
-  <div class="friends-divider">
-    <h3>Friends</h3>
-  </div>
 
-  <div class="index-add-friend">
-    <a href="/add-friend">
-      <button class="btn-primary btn-circle">+</button>
-      <h5 class="add-friend-h5">Add Friend</h5>
-    </a>
-  </div>
+
 
   <div class="container">
+    <div class="friends-divider">
+      <h3 class="friends-h3">Friends</h3>
+
+      <div class="index-add-friend">
+        <a href="/add-friend">
+          <button class="btn-primary btn-circle">+</button>
+          <h5 class="add-friend-h5">Add Friend</h5>
+        </a>
+      </div>
+
+    </div>
+
     <div class="card-deck friends-deck">
       {{#each listOfFriends}}
 
@@ -202,8 +206,10 @@
               {{/ifEquals}}
 
             </div>
-          </p>Compatability Score:
-          {{this.compatability}}
+          </p>
+          <p>Compatability Score:
+            <span class="compat-score-cards">{{this.compatability}}</span>
+          </p>
 
           <a href="/compatibility/{{this._id}}" class="btn btn-primary">See compatibility</a><br>
           <a href="/edit-friend/{{this._id}}">Edit</a>
