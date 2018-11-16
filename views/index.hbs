@@ -1,9 +1,11 @@
-<header class="header-homepage">
+<div class="profile-info-wrapper">
 
-  <h1>Hi {{user.username}}!</h1>
-  <h4>See how compatible you are with your pals.</h4>
+  <div class="greet-user">
+    <h1>Hi {{user.username}}!</h1>
+    <h4 class="greet-user">See how compatible you are with your pals.</h4>
+  </div>
 
-  <div class="container profile-info-wrapper">
+  <div class="container profile-img-and-info">
     <div class="row">
       <div class="col">
         <a href="/profile/{{req.user._id}}">
@@ -12,7 +14,7 @@
       </div>
 
       <div class="col user-info">
-        <ul class="center">
+        <ul class="center profile-infos-bc">
           <li>
             {{#ifEquals user.zodiac "Capricorn"}}
             <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358151/capricorn-sign.png" height="50">
@@ -102,18 +104,20 @@
       </div>
     </div>
   </div>
-</header>
+
+</div>
 
 <section class="friends-section">
   <div class="friends-divider">
     <h3>Friends</h3>
-    <div class="index-add-friend">
+  </div>
+
+  <div class="index-add-friend">
+    <a href="/add-friend">
       <button class="btn-primary btn-circle">+</button>
       <h5 class="add-friend-h5">Add Friend</h5>
-    </div>
-
+    </a>
   </div>
-  <br>
 
   <div class="container">
     <div class="card-deck friends-deck">

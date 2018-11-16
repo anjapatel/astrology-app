@@ -6331,9 +6331,6 @@ body {
   height: 100%;
   text-decoration: none !important; }
 
-.header-homepage {
-  margin-top: 40px; }
-
 h1 {
   font-size: 3em;
   text-align: center;
@@ -6350,18 +6347,19 @@ h3 {
 /* Friends divider ==================================== */
 .friends-divider {
   padding-bottom: 10px;
-  height: 180px;
+  height: 100px;
   background-color: #051221;
   color: #fefefe; }
 
 .index-add-friend {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin-top: 25px; }
 
 .btn-circle {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   padding: 6px 0px;
   border-radius: 50px;
   text-align: center;
@@ -6372,7 +6370,9 @@ h3 {
   display: inline-block;
   font-weight: 300;
   margin-top: 10px;
-  margin-left: 10px; }
+  margin-left: 12px;
+  margin-right: 17px;
+  color: #051221; }
 
 h4 {
   font-size: 1.3em;
@@ -6395,10 +6395,18 @@ nav a {
   font-size: 2em; }
 
 .profile-info-wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("https://res.cloudinary.com/ddutss7vb/image/upload/v1542367887/starbackground.jpg");
+  background-size: cover; }
+
+.greet-user {
+  margin-bottom: 20px; }
+
+.profile-img-and-info {
   display: flex;
   justify-content: center; }
 
@@ -6414,7 +6422,7 @@ nav a {
 .user-info {
   display: flex;
   align-items: center;
-  margin-left: 30px; }
+  padding-left: 10px; }
 
 .user-info li {
   font-size: 1em;
@@ -6424,7 +6432,11 @@ nav a {
 .user-info li span {
   font-size: 1.5em;
   font-family: "Roboto", sans-serif;
-  font-weight: 300; }
+  font-weight: 300;
+  margin-right: 50px; }
+
+.profile-infos-bc {
+  padding-left: 10px; }
 
 /*  Friends Deck home page ===================================== */
 .friends-section {
@@ -6539,7 +6551,7 @@ nav a {
 .edit-button-profile {
   margin-bottom: 400px; }
 
-/*  Login page animation =================================================================  */
+/*  Login page animation ===========================================================  */
 @keyframes move-twink-back {
   from {
     background-position: 0 0; }
