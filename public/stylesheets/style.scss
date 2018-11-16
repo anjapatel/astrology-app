@@ -13,6 +13,7 @@ red: #cb482f;
 //import SCSS of boostrap
 @import "node_modules/bootstrap/scss/bootstrap";
 
+
 .container-fluid {
   margin: 0;
   padding: 0;
@@ -192,6 +193,7 @@ nav a {
 
 .compat-icon {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0;
@@ -204,7 +206,7 @@ nav a {
 
 .compat-score-h3 {
   padding-top: 0px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 /* Login page ===================================================== */
@@ -232,7 +234,7 @@ nav a {
 
 .profile-body {
   background-image: linear-gradient(to top, #a0c6db, #fefefe);
-  height: 84vh;
+  height: 100vh;
 }
 
 .zodiac-infos-box {

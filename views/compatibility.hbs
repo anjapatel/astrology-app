@@ -1,133 +1,137 @@
-<div class="container">
-  <h3 class="mt-4">Your compatability with <a href="/{{friend._id}}">{{friend.name}}</a></h3>
-
-  <div class="row">
-    <div class="col-sm">
-      <div class="card-deck friends-deck compat-deck compat-cards">
-        <div class="card" style="width: 18rem;">
-          <a href="/profile/{{req.user._id}}">
-            <img class="card-img-top img-thumbnail" src="{{user.imgPath}}" alt="Card image cap">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title text-center">{{user.username}}</h5>
-            <p class="card-text text-center">
-              <span>{{user.zodiac}}</span><br>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm compat-icon">
-      <div>
-        {{#ifEquals compatability 1}}
-        <i class="fas fa-skull-crossbones fa-8x"></i>
-        {{else}}
-        {{/ifEquals}}
-
-        {{#ifEquals compatability 2}}
-        <i class="fas fa-exclamation-triangle fa-8x"></i>
-        {{else}}
-        {{/ifEquals}}
-
-
-        {{#ifEquals compatability 3}}
-        <i class="fas fa-thumbs-up fa-8x"></i>
-        {{else}}
-        {{/ifEquals}}
-
-        {{#ifEquals compatability 4}}
-        <i class="fas fa-heart fa-8x"></i>
-        {{else}}
-        {{/ifEquals}}
-
-        {{#ifEquals compatability 5}}
-        <i class="fas fa-grin-hearts fa-8x"></i>
-        {{else}}
-        {{/ifEquals}}
-      </div>
-    </div>
-
-
-    <div class="col-sm">
-      <div class="card-deck friends-deck compat-deck compat-cards">
-        <div class="card" style="width: 18rem;">
-          <a href="/profile/{{friend._id}}">
-            <img class="card-img-top img-thumbnail" src="{{friend.imgPath}}" alt="Card image cap">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title text-center">{{friend.name}}</h5>
-            <p class="card-text text-center">
-              <span>{{friend.zodiac}}</span><br>
-            </p>
-          </div>
-        </div>
-      </div>
-
-
-
-
-    </div>
-  </div>
-
-
-
+<div class="profile-body">
   <div class="container">
+    <h3 class="mt-4">Your compatability with <a href="/{{friend._id}}">{{friend.name}}</a></h3>
 
-    <h1>{{compatability}}/5</h1>
-    <h3 class="compat-score-h3">Your compatability score</h3>
+    <div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="card-deck friends-deck compat-deck compat-cards">
+            <div class="card" style="width: 18rem;">
+              <a href="/profile/{{req.user._id}}">
+                <img class="card-img-top img-thumbnail" src="{{user.imgPath}}" alt="Card image cap">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title text-center">{{user.username}}</h5>
+                <p class="card-text text-center">
+                  <span>{{user.zodiac}}</span><br>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="col-sm compat-icon pt-5">
+          <div>
+            {{#ifEquals compatability 1}}
+            <i class="fas fa-skull-crossbones fa-8x"></i>
+            {{else}}
+            {{/ifEquals}}
+
+            {{#ifEquals compatability 2}}
+            <i class="fas fa-exclamation-triangle fa-8x"></i>
+            {{else}}
+            {{/ifEquals}}
+
+
+            {{#ifEquals compatability 3}}
+            <i class="fas fa-thumbs-up fa-8x"></i>
+            {{else}}
+            {{/ifEquals}}
+
+            {{#ifEquals compatability 4}}
+            <i class="fas fa-heart fa-8x"></i>
+            {{else}}
+            {{/ifEquals}}
+
+            {{#ifEquals compatability 5}}
+            <i class="fas fa-grin-hearts fa-8x"></i>
+            {{else}}
+            {{/ifEquals}}
+          </div>
+
+          <div>
+            <h3 class="compat-score-h3">Score</h3>
+            <h1>{{compatability}}/5</h1>
+          </div>
+
+        </div>
+
+
+        <div class="col-sm">
+          <div class="card-deck friends-deck compat-deck compat-cards">
+            <div class="card" style="width: 18rem;">
+              <a href="/{{friend._id}}">
+                <img class="card-img-top img-thumbnail" src="{{friend.imgPath}}" alt="Card image cap">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title text-center">{{friend.name}}</h5>
+                <p class="card-text text-center">
+                  <span>{{friend.zodiac}}</span><br>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
 
     <div class="card card-body compat-info">
       <span class="compatability">
         <h4><span class="zodiac-compat-h4">{{user.zodiac}}</span> & <span class="zodiac-compat-h4">{{friend.zodiac}}</span></h4>
+        <p class="mt-3">
+          {{#ifEquals compatability 1}}
+          This is a disasterous pairing. You have a hard time understanding each other, and are likely ill-prepared to
+          read
+          each other's reactions and moods. Miscommunication and frustration are likely down the road. Please proceed
+          with
+          caution.
+          {{else}}
+          {{/ifEquals}}
 
+          {{#ifEquals compatability 2}}
+          Hmmm this one can go either way. If you're willing to put in the effort to acquaint yourselves with each
+          other's
+          communication styles and idiosyncracies, you could find fulfillment in this relationship. But be wary —
+          chances
+          of
+          hurt and misunderstanding are high. It can end in disaster just as easily as it could end in fulfillment.
+          {{else}}
+          {{/ifEquals}}
 
-        <br>
-        <br>
-        {{#ifEquals compatability 1}}
-        This is a disasterous pairing. You have a hard time understanding each other, and are likely ill-prepared to
-        read
-        each other's reactions and moods. Miscommunication and frustration are likely down the road. Please proceed
-        with
-        caution.
-        {{else}}
-        {{/ifEquals}}
+          {{#ifEquals compatability 3}}
+          This is a solid match
+          {{else}}
+          {{/ifEquals}}
 
-        {{#ifEquals compatability 2}}
-        Hmmm this one can go either way. If you're willing to put in the effort to acquaint yourselves with each
-        other's
-        communication styles and idiosyncracies, you could find fulfillment in this relationship. But be wary — chances
-        of
-        hurt and misunderstanding are high. It can end in disaster just as easily as it could end in fulfillment.
-        {{else}}
-        {{/ifEquals}}
+          {{#ifEquals compatability 4}}
+          This is a strong match. There might be some hesitation toward getting to know each other at first, but don't
+          let
+          fear triumph over curiosity. You have the chance to nurture a strong connection that will be both fulfilling
+          and
+          joyous.
+          {{else}}
+          {{/ifEquals}}
 
-        {{#ifEquals compatability 3}}
-        This is a solid match
-        {{else}}
-        {{/ifEquals}}
-
-        {{#ifEquals compatability 4}}
-        This is a strong match. There might be some hesitation toward getting to know each other at first, but don't
-        let
-        fear triumph over curiosity. You have the chance to nurture a strong connection that will be both fulfilling
-        and
-        joyous.
-        {{else}}
-        {{/ifEquals}}
-
-        {{#ifEquals compatability 5}}
-        Your star signs are as compatible as they come. You share a mutual understanding forged by complimentary
-        energies.
-        Whether your relationship is platonic, romantic, or otherwise, it will likely be a great source of fulfillment
-        for
-        both of you.
-        {{else}}
-        {{/ifEquals}}
+          {{#ifEquals compatability 5}}
+          Your star signs are as compatible as they come. You share a mutual understanding forged by complimentary
+          energies.
+          Whether your relationship is platonic, romantic, or otherwise, it will likely be a great source of
+          fulfillment
+          for
+          both of you.
+          {{else}}
+          {{/ifEquals}}
+        </p>
       </span>
     </div>
 
-    <div class="add-space"></div>
-
   </div>
+</div>
+
+<footer>
+  <div>
+    <small>AstroMatch 2018</small>
+  </div>
+</footer>
