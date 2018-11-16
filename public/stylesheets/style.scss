@@ -74,7 +74,7 @@ nav {
 }
 
 nav a {
-  color: #fefefe;
+  color: #a0c6db;
   font-family: 'Concert One', cursive;
   font-size: 1.2em;
 }
@@ -180,6 +180,23 @@ nav a {
   font-size: 1.4em;
   font-family: 'Concert One', cursive;
   font-weight: 300;
+}
+
+.compat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  max-width: 15%;
+}
+
+.compat-cards {
+  margin: 0;
+}
+
+.compat-score-h3 {
+  padding-top: 0px;
+  margin-bottom: 50px;
 }
 
 /* Login page ===================================================== */
