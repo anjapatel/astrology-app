@@ -3,9 +3,6 @@
   <h1>Hi {{user.username}}!</h1>
   <h4>See how compatible you are with your pals.</h4>
 
-
-
-
   <div class="container profile-info-wrapper">
     <div class="row">
       <div class="col">
@@ -16,9 +13,7 @@
 
       <div class="col user-info">
         <ul class="center">
-
           <li>
-
             {{#ifEquals user.zodiac "Capricorn"}}
             <img src="https://res.cloudinary.com/ddutss7vb/image/upload/v1542358151/capricorn-sign.png" height="50">
             {{else}}
@@ -85,45 +80,38 @@
               height="50">
             {{else}}
             {{/ifEquals}}
-
           </li>
-
           <li>
             Zodiac: <span>{{user.zodiac}}</span>
           </li>
           <li>
             Birthday: <span>{{user.birthday}} / {{user.birthmonth}}</span></li>
-
           <li>
             Birthtime: <span>{{user.birthtime}}</span>
           </li>
-
-
           <li>
             Birthplace: <span>{{user.birthplace}}</span>
           </li>
-
 
           <div class="edit-button container justify-content-left ml-0 pl-0">
             <button type="button" class="btn btn-primary edit-button-tag col">
               <a href="/edit-profile/{{user._id}}">Edit Profile</a>
             </button>
           </div>
-
         </ul>
-
       </div>
-
     </div>
   </div>
-
 </header>
 
 <section class="friends-section">
   <div class="friends-divider">
     <h3>Friends</h3>
-    <button class="btn-primary btn-circle">+</button>
-    <h5>Add Friend</h5>
+    <div class="index-add-friend">
+      <button class="btn-primary btn-circle">+</button>
+      <h5 class="add-friend-h5">Add Friend</h5>
+    </div>
+
   </div>
   <br>
 

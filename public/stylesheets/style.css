@@ -6331,15 +6331,6 @@ body {
   height: 100%;
   text-decoration: none !important; }
 
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  padding: 6px 0px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.42857; }
-
 .header-homepage {
   margin-top: 40px; }
 
@@ -6356,11 +6347,32 @@ h3 {
   text-align: center;
   padding-top: 30px; }
 
+/* Friends divider ==================================== */
 .friends-divider {
   padding-bottom: 10px;
-  height: 200px;
+  height: 180px;
   background-color: #051221;
   color: #fefefe; }
+
+.index-add-friend {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 6px 0px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.42857; }
+
+.add-friend-h5 {
+  display: inline-block;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-left: 10px; }
 
 h4 {
   font-size: 1.3em;
