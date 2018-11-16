@@ -6455,6 +6455,7 @@ nav a {
 
 .compat-icon {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0;
@@ -6465,7 +6466,7 @@ nav a {
 
 .compat-score-h3 {
   padding-top: 0px;
-  margin-bottom: 50px; }
+  margin-bottom: 0px; }
 
 /* Login page ===================================================== */
 .login-wrapper {
@@ -6488,7 +6489,7 @@ nav a {
 
 .profile-body {
   background-image: linear-gradient(to top, #a0c6db, #fefefe);
-  height: 84vh; }
+  height: 100vh; }
 
 .zodiac-infos-box {
   max-width: 80%;
