@@ -1,24 +1,54 @@
-<h2>Signup</h2>
+<section class="login-wrapper ">
+  {{!-- <div class="row">
+    <div class="col-sm"> --}}
+      <div class="stars">
+        <div class="twinkling">
+          <div class="clouds">
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+            <br>
+            <br>
+            <div class="mx-auto" style="width: 600px">
+              {{!-- <section class="login-form-wrapper"> --}}
 
-  <br><br>
+                <form action="/auth/signup" class="compatability" method="POST" id="form-container">
+                  <h1>Sign up to get started</h1>
+                  <div class="form-group row inline-block">
+                    <label class="col col-form-label" for="username">Username</label>
+                    <div class="col inline-block">
+                      <input id="username" type="text" name="username" placeholder="JonSnow" class="form-control">
+                    </div>
+                  </div>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+                  <div class="form-group row inline-block">
+                    <label class="col-sm-4 col-form-label" for="password">Password</label>
+                    <div class="col inline-block"><input id="password" type="password" name="password" placeholder="Your password"
+                        class="form-control">
+                    </div>
+                  </div>
+                  <br>
+                  {{#if message }}
+                  <div class="error-message">{{ message }}</div>
+                  {{/if}}
+                  <div class="form-group row">
+                    <div class="col">
+                      <button class="btn btn-primary col">Create account</button>
+                    </div>
+                  </div>
+                  <p class="account-message">
+                    Do you already have an account?
+                    <a href="/auth/login">Login</a>
+                  </p>
 
-  <br><br>
 
-  <button>Create account</button>
+                </form>
+                {{!--
+              </section> --}}
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{!--
+    </div> {{!-- ======> col-sm --}}
+  </div> ======> row --}}
+</section>

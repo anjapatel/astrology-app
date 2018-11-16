@@ -7,7 +7,7 @@ lightblue: #a0c6db;
 red: #cb482f;
  */
 
-// background-image: linear-gradient(to top, #fefefe, #051221) 
+// background-image: linear-gradient(to top, #fefefe, #051221)
 /* 992 breakpoint */
 
 //import SCSS of boostrap
@@ -19,30 +19,38 @@ red: #cb482f;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   // font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #051221;
   background-color: #fefefe;
   height: 100%;
-  text-decoration: none!important;
-  
+  text-decoration: none !important;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
 }
 
 .header-homepage {
   margin-top: 40px;
- 
 }
 
 h1 {
   font-size: 3em;
   text-align: center;
-  font-family: 'Concert One', cursive;
+  font-family: "Concert One", cursive;
 }
 
 h3 {
   font-size: 2em;
-  font-family: 'Concert One', cursive;
+  font-family: "Concert One", cursive;
   font-weight: 300;
   margin-bottom: 20px;
   text-align: center;
@@ -50,15 +58,15 @@ h3 {
 }
 
 .friends-divider {
-  height: 100px;
+  padding-bottom: 10px;
+  height: 200px;
   background-color: #051221;
   color: #fefefe;
-
 }
 
 h4 {
   font-size: 1.3em;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   text-align: center;
 }
@@ -75,21 +83,23 @@ nav {
 
 nav a {
   color: #a0c6db;
-  font-family: 'Concert One', cursive;
+  font-family: "Concert One", cursive;
   font-size: 1.2em;
 }
-
 
 .navbar-brand {
   font-size: 2em;
 }
 
 .profile-info-wrapper {
-  margin: 40px 50px 50px 0px;
+  // margin: 40px 50px 50px 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
 }
-
 
 .profile-image {
   display: block;
@@ -109,22 +119,20 @@ nav a {
 
 .user-info li {
   font-size: 1em;
-  font-family: 'Concert One', cursive;
+  font-family: "Concert One", cursive;
   font-weight: 300;
 }
 
 .user-info li span {
   font-size: 1.5em;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
-
-
 
 /*  Friends Deck home page ===================================== */
 .friends-section {
   background-color: #a0c6db;
-  background-image: linear-gradient(to top, #a0c6db, #fefefe) 
+  background-image: linear-gradient(to top, #a0c6db, #fefefe);
 }
 .friends-deck {
   padding-bottom: 70px;
@@ -150,14 +158,14 @@ nav a {
   background-color: #0512212d;
   border: none;
   min-width: 300px;
-  flex-grow: 0!important;
-  margin: auto!important;
-  margin-top: 30px!important;
+  flex-grow: 0 !important;
+  margin: auto !important;
+  margin-top: 30px !important;
 }
 
 .card-title {
   font-size: 1.5em;
-  font-family: 'Concert One', cursive;
+  font-family: "Concert One", cursive;
   font-weight: 300;
 }
 
@@ -178,7 +186,7 @@ nav a {
 
 .zodiac-compat-h4 {
   font-size: 1.4em;
-  font-family: 'Concert One', cursive;
+  font-family: "Concert One", cursive;
   font-weight: 300;
 }
 
@@ -383,9 +391,6 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: #051221;
- 
 }
-
-
 
 /* ============ Media */
